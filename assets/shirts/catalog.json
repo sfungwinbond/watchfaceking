@@ -1,9 +1,9 @@
 [
   {
-    "slug": "01_midtraining",
-    "name": "Midtraining",
-    "term": "MIDTRAINING",
-    "subline": "BASE \u2192 CAPABILITY",
+    "slug": "01_default_alive",
+    "name": "Default Alive",
+    "term": "DEFAULT ALIVE",
+    "subline": "BURN LESS / BUILD MORE",
     "price": 320,
     "sizes": [
       "XS",
@@ -14,56 +14,16 @@
       "2XL",
       "3XL"
     ],
-    "shirt_color": "#141414",
-    "ink": "#f2f0e9",
-    "accent": "#f05245",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+    "shirt_color": "#151513",
+    "ink": "#f3efe4",
+    "accent": "#ee503d",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
   },
   {
-    "slug": "02_lora",
-    "name": "LoRA",
-    "term": "LoRA",
-    "subline": "LOW-RANK ADAPTATION",
-    "price": 290,
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL"
-    ],
-    "shirt_color": "#ece9df",
-    "ink": "#111111",
-    "accent": "#ff5a36",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
-  },
-  {
-    "slug": "03_rag",
-    "name": "RAG",
-    "term": "RAG",
-    "subline": "RETRIEVE / AUGMENT / GENERATE",
-    "price": 300,
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL"
-    ],
-    "shirt_color": "#11151c",
-    "ink": "#f6f2e8",
-    "accent": "#a9ff3f",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
-  },
-  {
-    "slug": "04_inference",
-    "name": "Inference",
-    "term": "INFERENCE",
-    "subline": "SERVE / SAMPLE / REPEAT",
+    "slug": "02_series_a",
+    "name": "Series A Energy",
+    "term": "SERIES A",
+    "subline": "PRE-REVENUE / POST-COOL",
     "price": 340,
     "sizes": [
       "XS",
@@ -74,16 +34,16 @@
       "2XL",
       "3XL"
     ],
-    "shirt_color": "#c8c6bf",
-    "ink": "#171717",
-    "accent": "#3757ff",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+    "shirt_color": "#ddd7ca",
+    "ink": "#171612",
+    "accent": "#ff4e30",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
   },
   {
-    "slug": "05_context",
-    "name": "Context",
-    "term": "CONTEXT",
-    "subline": "WINDOW 128K",
+    "slug": "03_moat_mode",
+    "name": "Moat Mode",
+    "term": "MOAT MODE",
+    "subline": "UNFAIR ADVANTAGE",
     "price": 310,
     "sizes": [
       "XS",
@@ -94,16 +54,16 @@
       "2XL",
       "3XL"
     ],
-    "shirt_color": "#d94e43",
-    "ink": "#f8eddd",
-    "accent": "#1b1b1b",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+    "shirt_color": "#1b2234",
+    "ink": "#f2eee3",
+    "accent": "#c5ff3d",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
   },
   {
-    "slug": "06_agentic",
-    "name": "Agentic",
-    "term": "AGENTIC",
-    "subline": "PLAN / ACT / OBSERVE",
+    "slug": "04_pmf",
+    "name": "Product\u2013Market Fit",
+    "term": "PMF",
+    "subline": "PULL > PUSH",
     "price": 360,
     "sizes": [
       "XS",
@@ -114,36 +74,16 @@
       "2XL",
       "3XL"
     ],
-    "shirt_color": "#171717",
-    "ink": "#e8e6dd",
-    "accent": "#d8ff37",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+    "shirt_color": "#b7b4ad",
+    "ink": "#171612",
+    "accent": "#3756ff",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
   },
   {
-    "slug": "07_rlhf",
-    "name": "RLHF",
-    "term": "RLHF",
-    "subline": "HUMAN IN THE LOOP",
-    "price": 295,
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "2XL",
-      "3XL"
-    ],
-    "shirt_color": "#f1eee5",
-    "ink": "#121212",
-    "accent": "#ff4b28",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
-  },
-  {
-    "slug": "08_quantized",
-    "name": "Quantized",
-    "term": "QUANTIZED",
-    "subline": "INT8 / INT4",
+    "slug": "05_ai_native",
+    "name": "AI Native",
+    "term": "AI NATIVE",
+    "subline": "SOFTWARE EATS SOFTWARE",
     "price": 330,
     "sizes": [
       "XS",
@@ -154,16 +94,16 @@
       "2XL",
       "3XL"
     ],
-    "shirt_color": "#252b59",
-    "ink": "#eee9dc",
-    "accent": "#f0a6db",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+    "shirt_color": "#a83f35",
+    "ink": "#f5ead8",
+    "accent": "#171612",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
   },
   {
-    "slug": "09_distilled",
-    "name": "Distilled",
-    "term": "DISTILLED",
-    "subline": "TEACHER \u2192 STUDENT",
+    "slug": "06_hbm_hungry",
+    "name": "HBM Hungry",
+    "term": "HBM HUNGRY",
+    "subline": "BANDWIDTH IS THE MOAT",
     "price": 350,
     "sizes": [
       "XS",
@@ -174,17 +114,17 @@
       "2XL",
       "3XL"
     ],
-    "shirt_color": "#0c0d0f",
-    "ink": "#f5f0e8",
-    "accent": "#35d9c5",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+    "shirt_color": "#181817",
+    "ink": "#eeeadd",
+    "accent": "#f2d34f",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
   },
   {
-    "slug": "10_synthetic",
-    "name": "Synthetic",
-    "term": "SYNTHETIC",
-    "subline": "DATA / GENERATED",
-    "price": 380,
+    "slug": "07_gpu_rich",
+    "name": "GPU Rich",
+    "term": "GPU RICH",
+    "subline": "FLOPS ONLY GO UP",
+    "price": 375,
     "sizes": [
       "XS",
       "S",
@@ -194,9 +134,169 @@
       "2XL",
       "3XL"
     ],
-    "shirt_color": "#e7dfd2",
-    "ink": "#181514",
-    "accent": "#e3453c",
-    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+    "shirt_color": "#e7e1d5",
+    "ink": "#161513",
+    "accent": "#ee4938",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
+  },
+  {
+    "slug": "08_racks",
+    "name": "Racks on Racks",
+    "term": "RACKS",
+    "subline": "POWER / COOLING / COMPUTE",
+    "price": 390,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#272a58",
+    "ink": "#f0ebdf",
+    "accent": "#f0a3da",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
+  },
+  {
+    "slug": "09_founder_mode",
+    "name": "Founder Mode",
+    "term": "FOUNDER MODE",
+    "subline": "PERMISSIONLESS",
+    "price": 370,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#101112",
+    "ink": "#f1ede2",
+    "accent": "#31d7c2",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
+  },
+  {
+    "slug": "10_so_back",
+    "name": "We Are So Back",
+    "term": "WE ARE SO BACK",
+    "subline": "BREAKING / STILL BUILDING",
+    "price": 395,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#d9d1c3",
+    "ink": "#191614",
+    "accent": "#e64739",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
+  },
+  {
+    "slug": "11_silicon_saint",
+    "name": "Silicon Saint",
+    "term": "SILICON SAINT",
+    "subline": "IN FLOPS WE TRUST",
+    "price": 420,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#111111",
+    "ink": "#e7e3db",
+    "accent": "#9b9b96",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
+  },
+  {
+    "slug": "12_black_box",
+    "name": "Black Box",
+    "term": "BLACK BOX",
+    "subline": "FAITH-BASED INFERENCE",
+    "price": 440,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#1a1918",
+    "ink": "#eee9de",
+    "accent": "#a6a39c",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
+  },
+  {
+    "slug": "13_term_sheet",
+    "name": "Term Sheet",
+    "term": "TERM SHEET",
+    "subline": "SIGNED IN SILVER",
+    "price": 410,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#ded9cf",
+    "ink": "#191817",
+    "accent": "#777773",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
+  },
+  {
+    "slug": "14_compute_coven",
+    "name": "Compute Coven",
+    "term": "COMPUTE COVEN",
+    "subline": "SUMMON MORE GPUs",
+    "price": 460,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#121416",
+    "ink": "#eee9de",
+    "accent": "#8c9298",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
+  },
+  {
+    "slug": "15_latency_kills",
+    "name": "Latency Kills",
+    "term": "LATENCY KILLS",
+    "subline": "MOVE FAST / NO CACHE",
+    "price": 430,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#25211f",
+    "ink": "#f1ece0",
+    "accent": "#9f8f84",
+    "description": "Original startup-culture streetwear study with a print-safe front and back composition."
   }
 ]

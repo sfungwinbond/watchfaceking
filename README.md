@@ -3,7 +3,7 @@
 A single-page gallery of ten original, animated watchface concepts. All ten
 faces display the viewer's current local time and move together in real time.
 
-The `/shirts` subpage presents ten original technical streetwear concepts with
+The `/shirts` subpage presents fifteen original startup and compute streetwear concepts with
 front and back views. `/checkout` is an explicitly simulated premium checkout
 with sizes XS through 3XL; it neither transmits data nor collects payment.
 

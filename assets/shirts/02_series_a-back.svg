@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" role="img" aria-label="Series A Energy T-shirt back">
+    <defs>
+      <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000" flood-opacity=".38"/></filter>
+      <linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".12"/><stop offset=".3" stop-color="#ddd7ca"/><stop offset="1" stop-color="#000" stop-opacity=".16"/></linearGradient>
+      <clipPath id="shirtClip"><path d="M236 156 L340 94 Q450 148 560 94 L664 156 L850 290 L734 420 L670 368 L700 1010 L200 1010 L230 368 L166 420 L50 290Z"/></clipPath>
+      <clipPath id="printSafe"><rect x="218" y="258" width="464" height="515" rx="8"/></clipPath>
+    </defs>
+    <path d="M236 156 L340 94 Q450 148 560 94 L664 156 L850 290 L734 420 L670 368 L700 1010 L200 1010 L230 368 L166 420 L50 290Z" fill="#ddd7ca" filter="url(#shadow)"/><path d="M236 156 L340 94 Q450 148 560 94 L664 156 L850 290 L734 420 L670 368 L700 1010 L200 1010 L230 368 L166 420 L50 290Z" fill="url(#cloth)" opacity=".55"/>
+    <path d="M340 94 Q450 220 560 94 Q535 78 512 70 Q450 112 388 70 Q365 78 340 94Z" fill="#080808" opacity=".75"/>
+    <path d="M236 156 Q272 235 230 368 M664 156 Q628 235 670 368" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="5"/>
+    <g clip-path="url(#shirtClip)"><g clip-path="url(#printSafe)"><g transform="translate(450 506)"><path d="M-202 -182 L202 -182 142 -82 -202 -82Z" fill="#ff4e30"/><text x="-176" y="-112" font-family="Arial Black" font-size="68" font-style="italic" fill="#171612">SERIES</text><text x="-184" y="15" font-family="Arial Black" font-size="146" font-style="italic" fill="#171612">A</text><path d="M-54 -38 H205 M-54 2 H175 M-54 42 H205" stroke="#ff4e30" stroke-width="18"/><text y="105" text-anchor="middle" font-family="monospace" font-size="17" fill="#171612" letter-spacing="3">PRE-REVENUE / POST-COOL</text><text y="151" text-anchor="middle" font-family="Arial Black" font-size="27" fill="#ff4e30">ACCELERATE / 01</text></g></g></g>
+    </svg>
