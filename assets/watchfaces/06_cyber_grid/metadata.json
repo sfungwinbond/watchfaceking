@@ -1,0 +1,28 @@
+{
+  "name": "Cyber Grid",
+  "slug": "06_cyber_grid",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "display_time": "10:09:36",
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "formats": [
+    "SVG",
+    "PNG"
+  ],
+  "palette": {
+    "bg": "#07101f",
+    "bg2": "#121c3d",
+    "fg": "#dffaff",
+    "muted": "#506487",
+    "accent": "#ff3ca6",
+    "lume": "#2fffe7",
+    "metal": "#65d6ff"
+  },
+  "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+}

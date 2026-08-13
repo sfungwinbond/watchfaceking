@@ -1,0 +1,28 @@
+{
+  "name": "Obsidian Chronograph",
+  "slug": "01_obsidian_chrono",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "display_time": "10:09:36",
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "formats": [
+    "SVG",
+    "PNG"
+  ],
+  "palette": {
+    "bg": "#090b0f",
+    "bg2": "#252b35",
+    "fg": "#f4f0e8",
+    "muted": "#707986",
+    "accent": "#ff5c35",
+    "lume": "#dfffe6",
+    "metal": "#b8c0c8"
+  },
+  "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+}

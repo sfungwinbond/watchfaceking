@@ -1,0 +1,28 @@
+{
+  "name": "Solar Flare",
+  "slug": "03_solar_flare",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "display_time": "10:09:36",
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "formats": [
+    "SVG",
+    "PNG"
+  ],
+  "palette": {
+    "bg": "#31100b",
+    "bg2": "#a52b13",
+    "fg": "#fff4dc",
+    "muted": "#d78965",
+    "accent": "#ffcc4d",
+    "lume": "#fff1a6",
+    "metal": "#ff8d52"
+  },
+  "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+}

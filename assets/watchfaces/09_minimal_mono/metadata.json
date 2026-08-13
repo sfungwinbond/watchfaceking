@@ -1,0 +1,28 @@
+{
+  "name": "Minimal Mono",
+  "slug": "09_minimal_mono",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "display_time": "10:09:36",
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "formats": [
+    "SVG",
+    "PNG"
+  ],
+  "palette": {
+    "bg": "#f6f6f3",
+    "bg2": "#ffffff",
+    "fg": "#121417",
+    "muted": "#a5a7aa",
+    "accent": "#e64545",
+    "lume": "#f8f8e8",
+    "metal": "#36393d"
+  },
+  "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Lunar Phase",
+  "slug": "07_lunar_phase",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "display_time": "10:09:36",
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "formats": [
+    "SVG",
+    "PNG"
+  ],
+  "palette": {
+    "bg": "#071126",
+    "bg2": "#17294f",
+    "fg": "#f3e7bd",
+    "muted": "#7180a0",
+    "accent": "#d9b968",
+    "lume": "#f9efc8",
+    "metal": "#d9c897"
+  },
+  "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+}

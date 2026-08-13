@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Solar Flare complications overlay">
+  <defs>
+    <radialGradient id="dial" cx="42%" cy="34%" r="68%">
+      <stop offset="0" stop-color="#a52b13"/><stop offset="1" stop-color="#31100b"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff4dc"/><stop offset=".48" stop-color="#ff8d52"/><stop offset="1" stop-color="#fff4dc"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#643dff"/><stop offset=".5" stop-color="#1bc7c0"/><stop offset="1" stop-color="#7dff78"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    </defs>
+  <g><circle cx="512" cy="690" r="98" fill="none" stroke="#ffcc4d" stroke-width="5"/>
+        <line x1="512" y1="420" x2="512" y2="404" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="535.81" y1="423.13" x2="539.95" y2="407.68" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="558" y1="432.33" x2="566" y2="418.47" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="577.05" y1="446.95" x2="588.37" y2="435.63" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="591.67" y1="466" x2="605.53" y2="458" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="600.87" y1="488.19" x2="616.32" y2="484.05" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="604" y1="512" x2="620" y2="512" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="600.87" y1="535.81" x2="616.32" y2="539.95" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="591.67" y1="558" x2="605.53" y2="566" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="577.05" y1="577.05" x2="588.37" y2="588.37" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="558" y1="591.67" x2="566" y2="605.53" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="535.81" y1="600.87" x2="539.95" y2="616.32" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="512" y1="604" x2="512" y2="620" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="488.19" y1="600.87" x2="484.05" y2="616.32" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="466" y1="591.67" x2="458" y2="605.53" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="446.95" y1="577.05" x2="435.63" y2="588.37" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="432.33" y1="558" x2="418.47" y2="566" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="423.13" y1="535.81" x2="407.68" y2="539.95" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="420" y1="512" x2="404" y2="512" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="423.13" y1="488.19" x2="407.68" y2="484.05" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="432.33" y1="466" x2="418.47" y2="458" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="446.95" y1="446.95" x2="435.63" y2="435.63" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="466" y1="432.33" x2="458" y2="418.47" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/><line x1="488.19" y1="423.13" x2="484.05" y2="407.68" stroke="#ffcc4d" stroke-width="4" opacity="1" stroke-linecap="round"/>
+        <circle cx="512" cy="690" r="38" fill="#ffcc4d" opacity=".85" filter="url(#glow)"/></g>
+</svg>

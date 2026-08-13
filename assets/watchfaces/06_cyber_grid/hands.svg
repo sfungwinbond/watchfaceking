@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Cyber Grid hands overlay">
+  <defs>
+    <radialGradient id="dial" cx="42%" cy="34%" r="68%">
+      <stop offset="0" stop-color="#121c3d"/><stop offset="1" stop-color="#07101f"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dffaff"/><stop offset=".48" stop-color="#65d6ff"/><stop offset="1" stop-color="#dffaff"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#643dff"/><stop offset=".5" stop-color="#1bc7c0"/><stop offset="1" stop-color="#7dff78"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    </defs>
+  <g filter="url(#shadow)"><g transform="rotate(304 512 512)"><path d="M512 548 L498 512 L508 250 L516 250 L526 512 Z" fill="#65d6ff" filter="url(#glow)"/></g><g transform="rotate(54 512 512)"><path d="M512 550 L502 512 L509 132 L515 132 L522 512 Z" fill="#2fffe7" filter="url(#glow)"/></g><g transform="rotate(216 512 512)"><line x1="512" y1="586" x2="512" y2="116" stroke="#ff3ca6" stroke-width="7" stroke-linecap="round"/><circle cx="512" cy="176" r="20" fill="none" stroke="#ff3ca6" stroke-width="7"/></g>
+    <circle cx="512" cy="512" r="31" fill="url(#metal)" stroke="#07101f" stroke-width="6"/><circle cx="512" cy="512" r="10" fill="#ff3ca6"/></g>
+</svg>

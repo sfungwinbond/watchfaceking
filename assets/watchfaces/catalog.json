@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Obsidian Chronograph",
+    "slug": "01_obsidian_chrono",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#090b0f",
+      "bg2": "#252b35",
+      "fg": "#f4f0e8",
+      "muted": "#707986",
+      "accent": "#ff5c35",
+      "lume": "#dfffe6",
+      "metal": "#b8c0c8"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Alpine Explorer",
+    "slug": "02_alpine_explorer",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#10261e",
+      "bg2": "#29483a",
+      "fg": "#f3efd9",
+      "muted": "#8da798",
+      "accent": "#f2c94c",
+      "lume": "#d8ffc8",
+      "metal": "#d8d0b8"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Solar Flare",
+    "slug": "03_solar_flare",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#31100b",
+      "bg2": "#a52b13",
+      "fg": "#fff4dc",
+      "muted": "#d78965",
+      "accent": "#ffcc4d",
+      "lume": "#fff1a6",
+      "metal": "#ff8d52"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Ocean Depth",
+    "slug": "04_ocean_depth",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#031b2b",
+      "bg2": "#075f73",
+      "fg": "#e9ffff",
+      "muted": "#5ba5ae",
+      "accent": "#ff7f50",
+      "lume": "#a8fff0",
+      "metal": "#c8e8ed"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Ivory Sector",
+    "slug": "05_ivory_sector",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#eee6d2",
+      "bg2": "#fffdf5",
+      "fg": "#23272d",
+      "muted": "#8c877d",
+      "accent": "#a02c3a",
+      "lume": "#f7f0cf",
+      "metal": "#34383f"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Cyber Grid",
+    "slug": "06_cyber_grid",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#07101f",
+      "bg2": "#121c3d",
+      "fg": "#dffaff",
+      "muted": "#506487",
+      "accent": "#ff3ca6",
+      "lume": "#2fffe7",
+      "metal": "#65d6ff"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Lunar Phase",
+    "slug": "07_lunar_phase",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#071126",
+      "bg2": "#17294f",
+      "fg": "#f3e7bd",
+      "muted": "#7180a0",
+      "accent": "#d9b968",
+      "lume": "#f9efc8",
+      "metal": "#d9c897"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Copper Skeleton",
+    "slug": "08_copper_skeleton",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#17100d",
+      "bg2": "#3b251d",
+      "fg": "#f0d2b0",
+      "muted": "#8d6855",
+      "accent": "#e28b4a",
+      "lume": "#ffe0ad",
+      "metal": "#b66a3c"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Minimal Mono",
+    "slug": "09_minimal_mono",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#f6f6f3",
+      "bg2": "#ffffff",
+      "fg": "#121417",
+      "muted": "#a5a7aa",
+      "accent": "#e64545",
+      "lume": "#f8f8e8",
+      "metal": "#36393d"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  },
+  {
+    "name": "Aurora Sport",
+    "slug": "10_aurora_sport",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "display_time": "10:09:36",
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "formats": [
+      "SVG",
+      "PNG"
+    ],
+    "palette": {
+      "bg": "#101529",
+      "bg2": "#3c1c5c",
+      "fg": "#f7fbff",
+      "muted": "#7f82a9",
+      "accent": "#5dff9c",
+      "lume": "#caffea",
+      "metal": "#a9b4d1"
+    },
+    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+  }
+]

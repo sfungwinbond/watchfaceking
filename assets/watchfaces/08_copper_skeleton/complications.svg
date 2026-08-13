@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Copper Skeleton complications overlay">
+  <defs>
+    <radialGradient id="dial" cx="42%" cy="34%" r="68%">
+      <stop offset="0" stop-color="#3b251d"/><stop offset="1" stop-color="#17100d"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d2b0"/><stop offset=".48" stop-color="#b66a3c"/><stop offset="1" stop-color="#f0d2b0"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#643dff"/><stop offset=".5" stop-color="#1bc7c0"/><stop offset="1" stop-color="#7dff78"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    </defs>
+  <g><circle cx="512" cy="704" r="94" fill="#17100d" fill-opacity=".78" stroke="#b66a3c" stroke-width="5"/><line x1="512" y1="626" x2="512" y2="614" stroke="#f0d2b0" stroke-width="4"/><line x1="551" y1="636.45" x2="557" y2="626.06" stroke="#f0d2b0" stroke-width="4"/><line x1="579.55" y1="665" x2="589.94" y2="659" stroke="#f0d2b0" stroke-width="4"/><line x1="590" y1="704" x2="602" y2="704" stroke="#f0d2b0" stroke-width="4"/><line x1="579.55" y1="743" x2="589.94" y2="749" stroke="#f0d2b0" stroke-width="4"/><line x1="551" y1="771.55" x2="557" y2="781.94" stroke="#f0d2b0" stroke-width="4"/><line x1="512" y1="782" x2="512" y2="794" stroke="#f0d2b0" stroke-width="4"/><line x1="473" y1="771.55" x2="467" y2="781.94" stroke="#f0d2b0" stroke-width="4"/><line x1="444.45" y1="743" x2="434.06" y2="749" stroke="#f0d2b0" stroke-width="4"/><line x1="434" y1="704" x2="422" y2="704" stroke="#f0d2b0" stroke-width="4"/><line x1="444.45" y1="665" x2="434.06" y2="659" stroke="#f0d2b0" stroke-width="4"/><line x1="473" y1="636.45" x2="467" y2="626.06" stroke="#f0d2b0" stroke-width="4"/>
+    <line x1="512" y1="704" x2="564.64" y2="672.04" stroke="#e28b4a" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="512" cy="704" r="8" fill="#f0d2b0"/><text x="512" y="755.7" fill="#8d6855" font-family="Arial,sans-serif" font-size="20" text-anchor="middle">OPEN</text></g>
+</svg>

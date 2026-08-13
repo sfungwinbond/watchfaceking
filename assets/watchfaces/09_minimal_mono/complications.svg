@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Minimal Mono complications overlay">
+  <defs>
+    <radialGradient id="dial" cx="42%" cy="34%" r="68%">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6f6f3"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#121417"/><stop offset=".48" stop-color="#36393d"/><stop offset="1" stop-color="#121417"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#643dff"/><stop offset=".5" stop-color="#1bc7c0"/><stop offset="1" stop-color="#7dff78"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    </defs>
+  <g><circle cx="512" cy="696" r="80" fill="#f6f6f3" fill-opacity=".78" stroke="#36393d" stroke-width="5"/><line x1="512" y1="632" x2="512" y2="620" stroke="#121417" stroke-width="4"/><line x1="544" y1="640.57" x2="550" y2="630.18" stroke="#121417" stroke-width="4"/><line x1="567.43" y1="664" x2="577.82" y2="658" stroke="#121417" stroke-width="4"/><line x1="576" y1="696" x2="588" y2="696" stroke="#121417" stroke-width="4"/><line x1="567.43" y1="728" x2="577.82" y2="734" stroke="#121417" stroke-width="4"/><line x1="544" y1="751.43" x2="550" y2="761.82" stroke="#121417" stroke-width="4"/><line x1="512" y1="760" x2="512" y2="772" stroke="#121417" stroke-width="4"/><line x1="480" y1="751.43" x2="474" y2="761.82" stroke="#121417" stroke-width="4"/><line x1="456.57" y1="728" x2="446.18" y2="734" stroke="#121417" stroke-width="4"/><line x1="448" y1="696" x2="436" y2="696" stroke="#121417" stroke-width="4"/><line x1="456.57" y1="664" x2="446.18" y2="658" stroke="#121417" stroke-width="4"/><line x1="480" y1="640.57" x2="474" y2="630.18" stroke="#121417" stroke-width="4"/>
+    <line x1="512" y1="696" x2="556.8" y2="668.8" stroke="#e64545" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="512" cy="696" r="8" fill="#121417"/><text x="512" y="740.0" fill="#a5a7aa" font-family="Arial,sans-serif" font-size="20" text-anchor="middle">60</text></g>
+</svg>

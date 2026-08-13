@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Alpine Explorer complications overlay">
+  <defs>
+    <radialGradient id="dial" cx="42%" cy="34%" r="68%">
+      <stop offset="0" stop-color="#29483a"/><stop offset="1" stop-color="#10261e"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3efd9"/><stop offset=".48" stop-color="#d8d0b8"/><stop offset="1" stop-color="#f3efd9"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#643dff"/><stop offset=".5" stop-color="#1bc7c0"/><stop offset="1" stop-color="#7dff78"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    </defs>
+  <g transform="translate(0 164)"><circle cx="512" cy="512" r="95" fill="#10261e" fill-opacity=".75" stroke="#d8d0b8" stroke-width="5"/>
+        <path d="M512 432 l18 80 -18 80 -18-80z" fill="#f2c94c"/><path d="M432 512 l80-18 80 18-80 18z" fill="#f3efd9" opacity=".65"/>
+        <circle cx="512" cy="512" r="10" fill="#f3efd9"/></g>
+</svg>
