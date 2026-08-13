@@ -1,14 +1,14 @@
 const WATCHES = [
-  ["01_obsidian_chrono", "Obsidian Chronograph", "A dark instrument dial with three crisp timing registers and a signal-orange sweep."],
-  ["02_alpine_explorer", "Alpine Explorer", "Field-watch clarity, compass cues, and contour lines drawn for the long way home."],
-  ["03_solar_flare", "Solar Flare", "Radiant geometry in ember red and molten gold, centered on a miniature sun."],
-  ["04_ocean_depth", "Ocean Depth", "A luminous dive face with strong minute marks, a date aperture, and deep-sea color."],
-  ["05_ivory_sector", "Ivory Sector", "Warm paper tones and precise railway tracks give this sector dial a quiet authority."],
-  ["06_cyber_grid", "Cyber Grid", "Electric cyan, a technical grid, and a digital complication meet analog motion."],
-  ["07_lunar_phase", "Lunar Phase", "Roman numerals orbit a midnight dial and a golden crescent phase display."],
-  ["08_copper_skeleton", "Copper Skeleton", "Open gear forms, copper structure, and a small-seconds register reveal the machine."],
-  ["09_minimal_mono", "Minimal Mono", "Pure contrast and exact proportions reduce time to its most legible elements."],
-  ["10_aurora_sport", "Aurora Sport", "Twin performance registers and an aurora arc give the collection its kinetic finale."]
+  ["01_regency_date", "Regency Date", "Fluted elegance, a jade sunburst dial, and a magnified date aperture."],
+  ["02_meridian_gmt", "Meridian GMT", "A split 24-hour ring and independent travel pointer built for changing horizons."],
+  ["03_veloce_chronograph", "Veloce Chronograph", "A crisp panda layout with three distinct registers and a scarlet timing hand."],
+  ["04_monolith_tapisserie", "Monolith Tapisserie", "Steel architecture frames a deep blue geometric dial with exposed fasteners."],
+  ["05_carbon_offshore", "Carbon Offshore", "Forged-carbon texture, oversized registers, and an electric yellow sweep."],
+  ["06_openwork_bridges", "Openwork Bridges", "Rose-gold bridges cross an open mechanical field of wheels and jewel points."],
+  ["07_geneva_96", "Geneva 96", "A warm ivory dress dial with applied indices and discreet small seconds."],
+  ["08_horizon_sport", "Horizon Sport", "A porthole silhouette, horizontal dial relief, and an integrated-sport attitude."],
+  ["09_celestial_perpetual", "Celestial Perpetual", "A midnight calendar composition orbiting a hand-finished moon display."],
+  ["10_salmon_repeater", "Salmon Repeater", "A salmon sector dial with minute-track precision and a musical, old-world calm."]
 ];
 
 const collection = document.querySelector("#collection");

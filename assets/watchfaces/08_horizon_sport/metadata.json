@@ -1,0 +1,24 @@
+{
+  "slug": "08_horizon_sport",
+  "name": "Horizon Sport",
+  "family": "Genevan Classics",
+  "description": "A porthole silhouette, horizontal dial relief, and an integrated-sport attitude.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#29485b",
+    "bg2": "#0e2533",
+    "fg": "#eff8f7",
+    "metal": "#aebbc2",
+    "accent": "#65d3c9",
+    "lume": "#ddfff5"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}

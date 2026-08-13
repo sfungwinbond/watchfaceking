@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#111111">
+    <meta name="description" content="Simulated premium checkout for Model Weights technical streetwear.">
+    <title>Simulated Checkout — Model Weights</title>
+    <link rel="stylesheet" href="checkout.css">
+    <style>:root{--paper:#c9c3b7;--ink:#171612;--muted:#656157;--line:rgba(23,22,18,.25);--accent:#676158}.form-panel{background:#b8b1a5}</style>
+    <script src="checkout.js" defer></script>
+  </head>
+  <body>
+    <nav><a class="mark" href="/">W/K</a><a href="shirts">← Continue shopping</a></nav>
+    <div class="demo-banner">Simulation only · No payment is collected</div>
+    <main class="checkout-shell">
+      <section class="summary">
+        <p class="step">01 / Order</p>
+        <div class="product-images"><img id="frontImage" alt="Selected shirt front"><img id="backImage" alt="Selected shirt back"></div>
+        <div class="product-title"><div><p id="term"></p><h1 id="productName">Loading</h1></div><p id="unitPrice"></p></div>
+        <label>Design<select id="productSelect"></select></label>
+      </section>
+
+      <form id="checkoutForm" class="form-panel">
+        <p class="step">02 / Details</p>
+        <div class="field-row"><label>Size<select id="size" required><option>XS</option><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option><option>3XL</option></select></label><label>Quantity<select id="quantity"><option>1</option><option>2</option><option>3</option><option>4</option></select></label></div>
+        <label>Email<input type="email" autocomplete="email" placeholder="you@example.com" required></label>
+        <div class="field-row"><label>First name<input autocomplete="given-name" required></label><label>Last name<input autocomplete="family-name" required></label></div>
+        <label>Shipping address<input autocomplete="street-address" required></label>
+        <div class="field-row"><label>City<input autocomplete="address-level2" required></label><label>Postal code<input autocomplete="postal-code" required></label></div>
+        <label>Country<select autocomplete="country-name"><option>United States</option><option>Canada</option><option>United Kingdom</option><option>France</option><option>Germany</option><option>Italy</option><option>Japan</option><option>South Korea</option><option>Australia</option><option>Other</option></select></label>
+
+        <fieldset><legend>Payment simulation</legend><div class="demo-card"><span>DEMO</span><strong>•••• 4242</strong><small>NO CHARGE</small></div><p>No card details are requested or transmitted.</p></fieldset>
+
+        <div class="totals"><div><span>Subtotal</span><strong id="subtotal"></strong></div><div><span>Insured shipping</span><strong>Complimentary</strong></div><div class="total"><span>Total</span><strong id="total"></strong></div></div>
+        <button type="submit">Complete simulated order</button>
+        <p class="fine-print">This storefront is a visual prototype. Submitting displays a local confirmation only; it does not create an order or send your information anywhere.</p>
+      </form>
+    </main>
+    <dialog id="confirmation"><p>Simulation complete</p><h2>Reserved in imagination.</h2><p id="confirmationCopy"></p><a href="shirts">Return to collection</a></dialog>
+  </body>
+</html>

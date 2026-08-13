@@ -1,0 +1,24 @@
+{
+  "slug": "07_geneva_96",
+  "name": "Geneva 96",
+  "family": "Genevan Classics",
+  "description": "A warm ivory dress dial with applied indices and discreet small seconds.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#eee6d2",
+    "bg2": "#fffdf6",
+    "fg": "#2a2926",
+    "metal": "#cdb77d",
+    "accent": "#8f2e38",
+    "lume": "#fff8df"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}

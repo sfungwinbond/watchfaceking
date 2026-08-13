@@ -1,0 +1,24 @@
+{
+  "slug": "01_regency_date",
+  "name": "Regency Date",
+  "family": "Crown Sport",
+  "description": "Fluted elegance, a jade sunburst dial, and a magnified date aperture.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#12352b",
+    "bg2": "#071914",
+    "fg": "#f7f1dc",
+    "metal": "#d9c997",
+    "accent": "#d6b85a",
+    "lume": "#eefbd3"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}

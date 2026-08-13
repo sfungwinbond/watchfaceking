@@ -1,282 +1,242 @@
 [
   {
-    "name": "Obsidian Chronograph",
-    "slug": "01_obsidian_chrono",
+    "slug": "01_regency_date",
+    "name": "Regency Date",
+    "family": "Crown Sport",
+    "description": "Fluted elegance, a jade sunburst dial, and a magnified date aperture.",
     "canvas": [
       1024,
       1024
     ],
-    "display_time": "10:09:36",
     "layers": [
       "dial",
       "complications",
       "hands"
-    ],
-    "formats": [
-      "SVG",
-      "PNG"
     ],
     "palette": {
-      "bg": "#090b0f",
-      "bg2": "#252b35",
-      "fg": "#f4f0e8",
-      "muted": "#707986",
-      "accent": "#ff5c35",
-      "lume": "#dfffe6",
-      "metal": "#b8c0c8"
+      "bg": "#12352b",
+      "bg2": "#071914",
+      "fg": "#f7f1dc",
+      "metal": "#d9c997",
+      "accent": "#d6b85a",
+      "lume": "#eefbd3"
     },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
   },
   {
-    "name": "Alpine Explorer",
-    "slug": "02_alpine_explorer",
+    "slug": "02_meridian_gmt",
+    "name": "Meridian GMT",
+    "family": "Crown Sport",
+    "description": "A split 24-hour ring and independent travel pointer built for changing horizons.",
     "canvas": [
       1024,
       1024
     ],
-    "display_time": "10:09:36",
     "layers": [
       "dial",
       "complications",
       "hands"
-    ],
-    "formats": [
-      "SVG",
-      "PNG"
     ],
     "palette": {
-      "bg": "#10261e",
-      "bg2": "#29483a",
-      "fg": "#f3efd9",
-      "muted": "#8da798",
-      "accent": "#f2c94c",
-      "lume": "#d8ffc8",
-      "metal": "#d8d0b8"
+      "bg": "#111419",
+      "bg2": "#030405",
+      "fg": "#f5f2e9",
+      "metal": "#b9c1c8",
+      "accent": "#e7463c",
+      "lume": "#bfffd7"
     },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
   },
   {
-    "name": "Solar Flare",
-    "slug": "03_solar_flare",
+    "slug": "03_veloce_chronograph",
+    "name": "Veloce Chronograph",
+    "family": "Crown Sport",
+    "description": "A crisp panda layout with three distinct registers and a scarlet timing hand.",
     "canvas": [
       1024,
       1024
     ],
-    "display_time": "10:09:36",
     "layers": [
       "dial",
       "complications",
       "hands"
-    ],
-    "formats": [
-      "SVG",
-      "PNG"
     ],
     "palette": {
-      "bg": "#31100b",
-      "bg2": "#a52b13",
-      "fg": "#fff4dc",
-      "muted": "#d78965",
-      "accent": "#ffcc4d",
-      "lume": "#fff1a6",
-      "metal": "#ff8d52"
+      "bg": "#e8e4d9",
+      "bg2": "#faf8f1",
+      "fg": "#181b20",
+      "metal": "#c6c9ca",
+      "accent": "#e0453a",
+      "lume": "#fffbd7"
     },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
   },
   {
-    "name": "Ocean Depth",
-    "slug": "04_ocean_depth",
+    "slug": "04_monolith_tapisserie",
+    "name": "Monolith Tapisserie",
+    "family": "Octagonal Atelier",
+    "description": "Steel architecture frames a deep blue geometric dial with exposed fasteners.",
     "canvas": [
       1024,
       1024
     ],
-    "display_time": "10:09:36",
     "layers": [
       "dial",
       "complications",
       "hands"
-    ],
-    "formats": [
-      "SVG",
-      "PNG"
     ],
     "palette": {
-      "bg": "#031b2b",
-      "bg2": "#075f73",
-      "fg": "#e9ffff",
-      "muted": "#5ba5ae",
-      "accent": "#ff7f50",
-      "lume": "#a8fff0",
-      "metal": "#c8e8ed"
+      "bg": "#142b4a",
+      "bg2": "#071425",
+      "fg": "#edf4f7",
+      "metal": "#aeb9c4",
+      "accent": "#66b7d7",
+      "lume": "#d9fff2"
     },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
   },
   {
-    "name": "Ivory Sector",
-    "slug": "05_ivory_sector",
+    "slug": "05_carbon_offshore",
+    "name": "Carbon Offshore",
+    "family": "Octagonal Atelier",
+    "description": "Forged-carbon texture, oversized registers, and an electric yellow sweep.",
     "canvas": [
       1024,
       1024
     ],
-    "display_time": "10:09:36",
     "layers": [
       "dial",
       "complications",
       "hands"
     ],
-    "formats": [
-      "SVG",
-      "PNG"
+    "palette": {
+      "bg": "#111315",
+      "bg2": "#050607",
+      "fg": "#f5f5ef",
+      "metal": "#4e5358",
+      "accent": "#e9ff3f",
+      "lume": "#f6ffd2"
+    },
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+  },
+  {
+    "slug": "06_openwork_bridges",
+    "name": "Openwork Bridges",
+    "family": "Octagonal Atelier",
+    "description": "Rose-gold bridges cross an open mechanical field of wheels and jewel points.",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
+    ],
+    "palette": {
+      "bg": "#251713",
+      "bg2": "#080706",
+      "fg": "#f4d5b7",
+      "metal": "#ba714c",
+      "accent": "#ef9b68",
+      "lume": "#ffe7c6"
+    },
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+  },
+  {
+    "slug": "07_geneva_96",
+    "name": "Geneva 96",
+    "family": "Genevan Classics",
+    "description": "A warm ivory dress dial with applied indices and discreet small seconds.",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "layers": [
+      "dial",
+      "complications",
+      "hands"
     ],
     "palette": {
       "bg": "#eee6d2",
-      "bg2": "#fffdf5",
-      "fg": "#23272d",
-      "muted": "#8c877d",
-      "accent": "#a02c3a",
-      "lume": "#f7f0cf",
-      "metal": "#34383f"
+      "bg2": "#fffdf6",
+      "fg": "#2a2926",
+      "metal": "#cdb77d",
+      "accent": "#8f2e38",
+      "lume": "#fff8df"
     },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
   },
   {
-    "name": "Cyber Grid",
-    "slug": "06_cyber_grid",
+    "slug": "08_horizon_sport",
+    "name": "Horizon Sport",
+    "family": "Genevan Classics",
+    "description": "A porthole silhouette, horizontal dial relief, and an integrated-sport attitude.",
     "canvas": [
       1024,
       1024
     ],
-    "display_time": "10:09:36",
     "layers": [
       "dial",
       "complications",
       "hands"
     ],
-    "formats": [
-      "SVG",
-      "PNG"
-    ],
     "palette": {
-      "bg": "#07101f",
-      "bg2": "#121c3d",
-      "fg": "#dffaff",
-      "muted": "#506487",
-      "accent": "#ff3ca6",
-      "lume": "#2fffe7",
-      "metal": "#65d6ff"
+      "bg": "#29485b",
+      "bg2": "#0e2533",
+      "fg": "#eff8f7",
+      "metal": "#aebbc2",
+      "accent": "#65d3c9",
+      "lume": "#ddfff5"
     },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
   },
   {
-    "name": "Lunar Phase",
-    "slug": "07_lunar_phase",
+    "slug": "09_celestial_perpetual",
+    "name": "Celestial Perpetual",
+    "family": "Genevan Classics",
+    "description": "A midnight calendar composition orbiting a hand-finished moon display.",
     "canvas": [
       1024,
       1024
     ],
-    "display_time": "10:09:36",
     "layers": [
       "dial",
       "complications",
       "hands"
     ],
-    "formats": [
-      "SVG",
-      "PNG"
-    ],
     "palette": {
-      "bg": "#071126",
-      "bg2": "#17294f",
-      "fg": "#f3e7bd",
-      "muted": "#7180a0",
-      "accent": "#d9b968",
-      "lume": "#f9efc8",
-      "metal": "#d9c897"
+      "bg": "#111d3b",
+      "bg2": "#050a18",
+      "fg": "#f3e8c5",
+      "metal": "#d1bc78",
+      "accent": "#e0bd58",
+      "lume": "#fff5c9"
     },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
   },
   {
-    "name": "Copper Skeleton",
-    "slug": "08_copper_skeleton",
+    "slug": "10_salmon_repeater",
+    "name": "Salmon Repeater",
+    "family": "Genevan Classics",
+    "description": "A salmon sector dial with minute-track precision and a musical, old-world calm.",
     "canvas": [
       1024,
       1024
     ],
-    "display_time": "10:09:36",
     "layers": [
       "dial",
       "complications",
       "hands"
     ],
-    "formats": [
-      "SVG",
-      "PNG"
-    ],
     "palette": {
-      "bg": "#17100d",
-      "bg2": "#3b251d",
-      "fg": "#f0d2b0",
-      "muted": "#8d6855",
-      "accent": "#e28b4a",
-      "lume": "#ffe0ad",
-      "metal": "#b66a3c"
+      "bg": "#c88970",
+      "bg2": "#f1baa0",
+      "fg": "#28211e",
+      "metal": "#c8bfae",
+      "accent": "#723a36",
+      "lume": "#fff0d2"
     },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
-  },
-  {
-    "name": "Minimal Mono",
-    "slug": "09_minimal_mono",
-    "canvas": [
-      1024,
-      1024
-    ],
-    "display_time": "10:09:36",
-    "layers": [
-      "dial",
-      "complications",
-      "hands"
-    ],
-    "formats": [
-      "SVG",
-      "PNG"
-    ],
-    "palette": {
-      "bg": "#f6f6f3",
-      "bg2": "#ffffff",
-      "fg": "#121417",
-      "muted": "#a5a7aa",
-      "accent": "#e64545",
-      "lume": "#f8f8e8",
-      "metal": "#36393d"
-    },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
-  },
-  {
-    "name": "Aurora Sport",
-    "slug": "10_aurora_sport",
-    "canvas": [
-      1024,
-      1024
-    ],
-    "display_time": "10:09:36",
-    "layers": [
-      "dial",
-      "complications",
-      "hands"
-    ],
-    "formats": [
-      "SVG",
-      "PNG"
-    ],
-    "palette": {
-      "bg": "#101529",
-      "bg2": "#3c1c5c",
-      "fg": "#f7fbff",
-      "muted": "#7f82a9",
-      "accent": "#5dff9c",
-      "lume": "#caffea",
-      "metal": "#a9b4d1"
-    },
-    "license_note": "Original unbranded geometric artwork; no third-party trademarks included."
+    "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
   }
 ]

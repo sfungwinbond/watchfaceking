@@ -1,0 +1,24 @@
+{
+  "slug": "04_monolith_tapisserie",
+  "name": "Monolith Tapisserie",
+  "family": "Octagonal Atelier",
+  "description": "Steel architecture frames a deep blue geometric dial with exposed fasteners.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#142b4a",
+    "bg2": "#071425",
+    "fg": "#edf4f7",
+    "metal": "#aeb9c4",
+    "accent": "#66b7d7",
+    "lume": "#d9fff2"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}

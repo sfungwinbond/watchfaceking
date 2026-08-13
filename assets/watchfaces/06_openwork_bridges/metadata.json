@@ -1,0 +1,24 @@
+{
+  "slug": "06_openwork_bridges",
+  "name": "Openwork Bridges",
+  "family": "Octagonal Atelier",
+  "description": "Rose-gold bridges cross an open mechanical field of wheels and jewel points.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#251713",
+    "bg2": "#080706",
+    "fg": "#f4d5b7",
+    "metal": "#ba714c",
+    "accent": "#ef9b68",
+    "lume": "#ffe7c6"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}

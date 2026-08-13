@@ -1,0 +1,24 @@
+{
+  "slug": "10_salmon_repeater",
+  "name": "Salmon Repeater",
+  "family": "Genevan Classics",
+  "description": "A salmon sector dial with minute-track precision and a musical, old-world calm.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#c88970",
+    "bg2": "#f1baa0",
+    "fg": "#28211e",
+    "metal": "#c8bfae",
+    "accent": "#723a36",
+    "lume": "#fff0d2"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}

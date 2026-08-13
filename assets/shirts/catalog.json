@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "01_midtraining",
+    "name": "Midtraining",
+    "term": "MIDTRAINING",
+    "subline": "BASE \u2192 CAPABILITY",
+    "price": 320,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#141414",
+    "ink": "#f2f0e9",
+    "accent": "#f05245",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "02_lora",
+    "name": "LoRA",
+    "term": "LoRA",
+    "subline": "LOW-RANK ADAPTATION",
+    "price": 290,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#ece9df",
+    "ink": "#111111",
+    "accent": "#ff5a36",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "03_rag",
+    "name": "RAG",
+    "term": "RAG",
+    "subline": "RETRIEVE / AUGMENT / GENERATE",
+    "price": 300,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#11151c",
+    "ink": "#f6f2e8",
+    "accent": "#a9ff3f",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "04_inference",
+    "name": "Inference",
+    "term": "INFERENCE",
+    "subline": "SERVE / SAMPLE / REPEAT",
+    "price": 340,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#c8c6bf",
+    "ink": "#171717",
+    "accent": "#3757ff",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "05_context",
+    "name": "Context",
+    "term": "CONTEXT",
+    "subline": "WINDOW 128K",
+    "price": 310,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#d94e43",
+    "ink": "#f8eddd",
+    "accent": "#1b1b1b",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "06_agentic",
+    "name": "Agentic",
+    "term": "AGENTIC",
+    "subline": "PLAN / ACT / OBSERVE",
+    "price": 360,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#171717",
+    "ink": "#e8e6dd",
+    "accent": "#d8ff37",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "07_rlhf",
+    "name": "RLHF",
+    "term": "RLHF",
+    "subline": "HUMAN IN THE LOOP",
+    "price": 295,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#f1eee5",
+    "ink": "#121212",
+    "accent": "#ff4b28",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "08_quantized",
+    "name": "Quantized",
+    "term": "QUANTIZED",
+    "subline": "INT8 / INT4",
+    "price": 330,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#252b59",
+    "ink": "#eee9dc",
+    "accent": "#f0a6db",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "09_distilled",
+    "name": "Distilled",
+    "term": "DISTILLED",
+    "subline": "TEACHER \u2192 STUDENT",
+    "price": 350,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#0c0d0f",
+    "ink": "#f5f0e8",
+    "accent": "#35d9c5",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  },
+  {
+    "slug": "10_synthetic",
+    "name": "Synthetic",
+    "term": "SYNTHETIC",
+    "subline": "DATA / GENERATED",
+    "price": 380,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL",
+      "3XL"
+    ],
+    "shirt_color": "#e7dfd2",
+    "ink": "#181514",
+    "accent": "#e3453c",
+    "description": "Original technical streetwear study with deconstructed luxury, industrial graphics, and concise machine-learning language."
+  }
+]

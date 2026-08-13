@@ -1,0 +1,24 @@
+{
+  "slug": "05_carbon_offshore",
+  "name": "Carbon Offshore",
+  "family": "Octagonal Atelier",
+  "description": "Forged-carbon texture, oversized registers, and an electric yellow sweep.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#111315",
+    "bg2": "#050607",
+    "fg": "#f5f5ef",
+    "metal": "#4e5358",
+    "accent": "#e9ff3f",
+    "lume": "#f6ffd2"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}

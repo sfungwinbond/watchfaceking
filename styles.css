@@ -116,6 +116,19 @@ h1 em {
 
 .scroll-cue span { animation: drift 1.8s ease-in-out infinite; }
 
+.collection-link {
+  position: absolute;
+  right: clamp(2rem, 6vw, 6rem);
+  bottom: 2.5rem;
+  color: #c7cbd4;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.collection-link:hover { color: #fff; }
+
 .collection {
   width: min(1560px, 100%);
   margin: 0 auto;
@@ -240,6 +253,7 @@ footer {
 @media (max-width: 760px) {
   .hero { min-height: 90svh; padding-top: 7rem; }
   .time-readout { left: 2rem; right: auto; }
+  .collection-link { bottom: 5rem; left: 2rem; right: auto; }
   .watch-card, .watch-card:nth-child(even) {
     grid-template-columns: 1fr;
     min-height: auto;

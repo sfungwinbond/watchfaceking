@@ -1,0 +1,24 @@
+{
+  "slug": "03_veloce_chronograph",
+  "name": "Veloce Chronograph",
+  "family": "Crown Sport",
+  "description": "A crisp panda layout with three distinct registers and a scarlet timing hand.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#e8e4d9",
+    "bg2": "#faf8f1",
+    "fg": "#181b20",
+    "metal": "#c6c9ca",
+    "accent": "#e0453a",
+    "lume": "#fffbd7"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}

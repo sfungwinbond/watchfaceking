@@ -1,0 +1,24 @@
+{
+  "slug": "09_celestial_perpetual",
+  "name": "Celestial Perpetual",
+  "family": "Genevan Classics",
+  "description": "A midnight calendar composition orbiting a hand-finished moon display.",
+  "canvas": [
+    1024,
+    1024
+  ],
+  "layers": [
+    "dial",
+    "complications",
+    "hands"
+  ],
+  "palette": {
+    "bg": "#111d3b",
+    "bg2": "#050a18",
+    "fg": "#f3e8c5",
+    "metal": "#d1bc78",
+    "accent": "#e0bd58",
+    "lume": "#fff5c9"
+  },
+  "originality": "Unbranded original artwork informed by broad luxury-watch design traditions; no logos or exact replicas."
+}
