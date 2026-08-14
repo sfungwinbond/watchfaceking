@@ -100,18 +100,12 @@ def analog_hands(accent: str) -> str:
 def status_gauge(start: float, end: float, metric: str, fill: float, color: str, width: int = 22, radius: int = 400) -> str:
     x1, y1 = polar(radius, start)
     x2, y2 = polar(radius, end)
-    active_x, active_y = polar(radius, start + (end - start) * fill / 100)
     large = 1 if (end - start) % 360 > 180 else 0
     path = f'M{x1:.1f} {y1:.1f} A{radius} {radius} 0 {large} 1 {x2:.1f} {y2:.1f}'
     return (
         f'<path d="{path}" fill="none" stroke="#3a302b" stroke-width="{width}" stroke-linecap="round" opacity=".78"/>'
-        f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{width / 2:.1f}" fill="#3a302b" opacity=".78"/>'
-        f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{width / 2:.1f}" fill="#3a302b" opacity=".78"/>'
-        f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{width / 2:.1f}" fill="{color}" data-gauge-cap="{metric}" filter="url(#meter-glow)"/>'
         f'<path d="{path}" fill="none" stroke="{color}" stroke-width="{width}" stroke-linecap="round" pathLength="100" '
         f'stroke-dasharray="{fill:.1f} 100" data-gauge="{metric}" filter="url(#meter-glow)"/>'
-        f'<circle cx="{active_x:.1f}" cy="{active_y:.1f}" r="{width / 2:.1f}" fill="{color}" '
-        f'data-gauge-end="{metric}" filter="url(#meter-glow)"/>'
     )
 
 
@@ -179,20 +173,18 @@ def face_ember(t: dict) -> str:
     pale, rust, bright = "#f4e8df", "#e24624", "#ff5a36"
     telemetry_band = (
         '<defs>'
-        '<filter id="meter-glow" x="-25%" y="-25%" width="150%" height="150%">'
+        '<filter id="meter-glow" filterUnits="userSpaceOnUse" x="64" y="64" width="896" height="896">'
         '<feGaussianBlur stdDeviation="4.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>'
         '</filter>'
-        '<filter id="icon-glow" x="-80%" y="-80%" width="260%" height="260%">'
+        '<filter id="icon-glow" filterUnits="userSpaceOnUse" x="64" y="64" width="896" height="896">'
         '<feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>'
         '</filter>'
         '</defs>'
         '<style>'
         '[data-ring-icon]{animation:icon-flash .84s ease-in-out infinite;transform-box:fill-box;transform-origin:center}'
         '[data-gauge]{animation:meter-flash .84s steps(2,end) infinite}'
-        '[data-gauge-cap],[data-gauge-end]{animation:cap-flash .84s steps(2,end) infinite}'
         '@keyframes icon-flash{0%,100%{opacity:.66;transform:scale(.96);color:#ff5a36}33%{opacity:1;transform:scale(1.1);color:#ffc247}66%{opacity:1;transform:scale(1.04);color:#ff3f79}}'
         '@keyframes meter-flash{0%,100%{stroke-opacity:.78;stroke:#ff5a36}33%{stroke-opacity:1;stroke:#ffc247}66%{stroke-opacity:1;stroke:#ff3f79}}'
-        '@keyframes cap-flash{0%,100%{fill:#ff5a36}33%{fill:#ffc247}66%{fill:#ff3f79}}'
         '</style>'
         '<circle cx="512" cy="512" r="366" fill="none" stroke="#120f0e" stroke-width="68"/>'
         '<circle cx="512" cy="512" r="331" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
