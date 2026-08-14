@@ -1,0 +1,19 @@
+{
+  "slug": "pixel-04-recovery-field",
+  "name": "Recovery Field",
+  "mode": "RECOVER",
+  "accent": "#b6f06b",
+  "bg": "#060806",
+  "description": "Recovery, sleep, and resting pulse arranged as a quiet readiness dashboard.",
+  "metrics": [
+    "recovery",
+    "sleep",
+    "resting"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}

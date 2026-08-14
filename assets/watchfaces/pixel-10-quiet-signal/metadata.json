@@ -1,0 +1,20 @@
+{
+  "slug": "pixel-10-quiet-signal",
+  "name": "Quiet Signal",
+  "mode": "MINIMAL",
+  "accent": "#ff765e",
+  "bg": "#050505",
+  "description": "A restrained analog face with health signals tucked into four precise capsules.",
+  "metrics": [
+    "heart",
+    "steps",
+    "oxygen",
+    "sleep"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}

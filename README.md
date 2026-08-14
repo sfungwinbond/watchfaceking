@@ -1,14 +1,16 @@
 # Watchface King
 
-A single-page gallery of ten original, animated watchface concepts. All ten
-faces display the viewer's current local time and move together in real time.
+A single-page gallery of ten original, Pixel-inspired health watchface concepts.
+All ten faces display the viewer's local time and share a gently animated demo
+health feed. The values are explicitly labeled as simulated interface data.
 
 The `/shirts` subpage presents fifteen original startup and compute streetwear concepts with
 front and back views. `/checkout` is an explicitly simulated premium checkout
 with sizes XS through 3XL; it neither transmits data nor collects payment.
 
 The site is plain HTML, CSS, and JavaScript. It has no dependencies and no build
-step. Dial artwork is stored as editable SVG layers under `assets/watchfaces/`.
+step. The live SVG masters are under `assets/watchfaces/pixel-*` and can be
+regenerated with `python3 tools/generate_pixel_faces.py`.
 
 ## Run locally
 

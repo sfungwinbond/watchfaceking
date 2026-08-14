@@ -1,0 +1,20 @@
+{
+  "slug": "pixel-09-vital-stack",
+  "name": "Vital Stack",
+  "mode": "OVERVIEW",
+  "accent": "#f2eadf",
+  "bg": "#060606",
+  "description": "A dense but calm stack of the metrics that matter most right now.",
+  "metrics": [
+    "heart",
+    "steps",
+    "oxygen",
+    "recovery"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}

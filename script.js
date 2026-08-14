@@ -1,101 +1,146 @@
-const WATCHES = [
-  ["01_regency_date", "Regency Date", "Fluted elegance, a jade sunburst dial, and a magnified date aperture."],
-  ["02_meridian_gmt", "Meridian GMT", "A split 24-hour ring and independent travel pointer built for changing horizons."],
-  ["03_veloce_chronograph", "Veloce Chronograph", "A crisp panda layout with three distinct registers and a scarlet timing hand."],
-  ["04_monolith_tapisserie", "Monolith Tapisserie", "Steel architecture frames a deep blue geometric dial with exposed fasteners."],
-  ["05_carbon_offshore", "Carbon Offshore", "Forged-carbon texture, oversized registers, and an electric yellow sweep."],
-  ["06_openwork_bridges", "Openwork Bridges", "Rose-gold bridges cross an open mechanical field of wheels and jewel points."],
-  ["07_geneva_96", "Geneva 96", "A warm ivory dress dial with applied indices and discreet small seconds."],
-  ["08_horizon_sport", "Horizon Sport", "A porthole silhouette, horizontal dial relief, and an integrated-sport attitude."],
-  ["09_celestial_perpetual", "Celestial Perpetual", "A midnight calendar composition orbiting a hand-finished moon display."],
-  ["10_salmon_repeater", "Salmon Repeater", "A salmon sector dial with minute-track precision and a musical, old-world calm."]
+const FACES = [
+  { slug: "pixel-01-ember-atlas", name: "Ember Atlas", mode: "HYBRID", description: "A field-watch dial wrapped in live activity, heart, and energy arcs.", metrics: ["heart", "steps", "calories"] },
+  { slug: "pixel-02-pulse-orbit", name: "Pulse Orbit", mode: "CARDIO", description: "Heart rate becomes the clock: one vivid orbit, one calm central readout.", metrics: ["heart", "activity", "recovery"] },
+  { slug: "pixel-03-stride-grid", name: "Stride Grid", mode: "MOVE", description: "A bold typographic step counter with pace, distance, and daily progress.", metrics: ["steps", "distance", "activity"] },
+  { slug: "pixel-04-recovery-field", name: "Recovery Field", mode: "RECOVER", description: "Recovery, sleep, and resting pulse arranged as a quiet readiness dashboard.", metrics: ["recovery", "sleep", "resting"] },
+  { slug: "pixel-05-oxygen-bloom", name: "Oxygen Bloom", mode: "VITALS", description: "A radial oxygen study that turns a vital reading into a soft kinetic bloom.", metrics: ["oxygen", "heart", "temperature"] },
+  { slug: "pixel-06-night-shift", name: "Night Shift", mode: "SLEEP", description: "A nocturnal face for sleep duration, recovery rhythm, and tomorrow's alarm.", metrics: ["sleep", "recovery", "resting"] },
+  { slug: "pixel-07-summit-line", name: "Summit Line", mode: "OUTDOOR", description: "Elevation, temperature, and sunrise live inside a compact topographic dial.", metrics: ["elevation", "temperature", "steps"] },
+  { slug: "pixel-08-tempo-zones", name: "Tempo Zones", mode: "TRAIN", description: "Training load and heart zones animate around a fast, legible time display.", metrics: ["heart", "activity", "calories"] },
+  { slug: "pixel-09-vital-stack", name: "Vital Stack", mode: "OVERVIEW", description: "A dense but calm stack of the metrics that matter most right now.", metrics: ["heart", "steps", "oxygen", "recovery"] },
+  { slug: "pixel-10-quiet-signal", name: "Quiet Signal", mode: "MINIMAL", description: "A restrained analog face with health signals tucked into four precise capsules.", metrics: ["heart", "steps", "oxygen", "sleep"] }
 ];
 
-const collection = document.querySelector("#collection");
-const template = document.querySelector("#watchTemplate");
-const liveHands = new Set();
-const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+const METRIC_LABELS = {
+  heart: "Heart rate", steps: "Steps", calories: "Calories", activity: "Active minutes",
+  recovery: "Recovery", distance: "Distance", sleep: "Sleep", resting: "Resting heart",
+  oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation"
+};
 
-function createWatch([slug, name, description], index) {
+const faceGrid = document.querySelector("#faceGrid");
+const template = document.querySelector("#faceTemplate");
+const liveDocuments = new Set();
+
+function createFace(face, index) {
   const fragment = template.content.cloneNode(true);
-  const card = fragment.querySelector(".watch-card");
-  const base = `assets/watchfaces/${slug}`;
-  const dial = fragment.querySelector(".dial");
-  const complications = fragment.querySelector(".complications");
-  const hands = fragment.querySelector(".hands");
+  const card = fragment.querySelector(".face-card");
+  const object = fragment.querySelector(".watch-face");
+  const metricList = fragment.querySelector(".metric-list");
 
-  card.dataset.slug = slug;
-  card.style.setProperty("--accent", "#ffffff");
-  card.querySelector(".watch").setAttribute("aria-label", `${name}, animated live watchface`);
-  card.querySelector(".index").textContent = String(index + 1).padStart(2, "0");
-  card.querySelector("h2").textContent = name;
-  card.querySelector(".description").textContent = description;
-  dial.src = `${base}/dial.svg`;
-  complications.src = `${base}/complications.svg`;
-  hands.data = `${base}/hands.svg`;
+  card.dataset.mode = face.mode;
+  card.style.transitionDelay = `${Math.min(index * 55, 330)}ms`;
+  card.querySelector(".face-number").textContent = String(index + 1).padStart(2, "0");
+  card.querySelector(".face-mode").textContent = face.mode;
+  card.querySelector("h3").textContent = face.name;
+  card.querySelector(".face-description").textContent = face.description;
+  object.data = `assets/watchfaces/${face.slug}/face.svg`;
+  object.setAttribute("aria-label", `${face.name}, live demo watch face`);
 
-  hands.addEventListener("load", () => {
-    try {
-      const groups = hands.contentDocument.querySelectorAll("svg > g > g[transform]");
-      if (groups.length >= 3) {
-        liveHands.add({ hour: groups[0], minute: groups[1], second: groups[2] });
-        updateClocks();
-      }
-    } catch (error) {
-      console.warn(`Could not animate ${name}`, error);
-    }
+  face.metrics.forEach(metric => {
+    const item = document.createElement("li");
+    item.textContent = METRIC_LABELS[metric];
+    metricList.append(item);
   });
 
-  fetch(`${base}/metadata.json`)
-    .then(response => response.ok ? response.json() : Promise.reject(response.status))
-    .then(meta => {
-      card.style.setProperty("--accent", meta.palette.accent);
-      const palette = card.querySelector(".palette");
-      Object.values(meta.palette).slice(0, 5).forEach(color => {
-        const swatch = document.createElement("span");
-        swatch.className = "swatch";
-        swatch.style.background = color;
-        swatch.title = color;
-        palette.append(swatch);
-      });
-    })
-    .catch(() => {});
+  object.addEventListener("load", () => {
+    try {
+      liveDocuments.add(object.contentDocument);
+      updateLiveDemo();
+    } catch (error) {
+      console.warn(`Unable to activate ${face.name}`, error);
+    }
+  });
 
   return fragment;
 }
 
-WATCHES.forEach((watch, index) => collection.append(createWatch(watch, index)));
+FACES.forEach((face, index) => faceGrid.append(createFace(face, index)));
 
-function updateClocks() {
-  const now = new Date();
-  const milliseconds = reduceMotion.matches ? 0 : now.getMilliseconds();
-  const seconds = now.getSeconds() + milliseconds / 1000;
+function getDemoValues(now = new Date()) {
+  const elapsed = now.getTime() / 1000;
+  const heart = Math.round(76 + Math.sin(elapsed / 7) * 4 + Math.sin(elapsed / 2.7) * 2);
+  const steps = 8742 + Math.floor((elapsed % 3600) / 18);
+  const recovery = Math.round(82 + Math.sin(elapsed / 29) * 2);
+  const oxygen = Math.round(98 + Math.sin(elapsed / 17) * .55);
+  const activity = 54 + Math.floor((elapsed % 300) / 60);
+  const calories = 612 + Math.floor((elapsed % 600) / 75);
+  const elevation = 1842 + Math.round(Math.sin(elapsed / 11) * 3);
+  const date = now.toLocaleDateString(undefined, { month: "short", day: "numeric" }).toUpperCase();
+  const day = now.toLocaleDateString(undefined, { weekday: "short" }).toUpperCase();
+  const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
+  const timeSeconds = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+
+  return {
+    heart: String(heart), steps: steps.toLocaleString(), recovery: String(recovery), oxygen: `${oxygen}%`,
+    activity: `${activity} MIN`, calories: String(calories), distance: "6.4 KM", sleep: "7H 42M",
+    resting: "54 BPM", temperature: "+0.2°", elevation: elevation.toLocaleString(), date, day, time,
+    time_seconds: timeSeconds
+  };
+}
+
+function progressFor(metric, values) {
+  const number = parseFloat(String(values[metric]).replace(/[^0-9.]/g, ""));
+  const scales = { heart: [45, 150], steps: [0, 12000], recovery: [0, 100], oxygen: [90, 100], activity: [0, 90] };
+  const [min, max] = scales[metric] || [0, 100];
+  return Math.max(.04, Math.min(1, (number - min) / (max - min)));
+}
+
+function updateSvg(documentNode, now, values) {
+  documentNode.querySelectorAll("[data-live]").forEach(node => {
+    const metric = node.dataset.live;
+    if (values[metric] !== undefined) node.textContent = values[metric];
+  });
+
+  const seconds = now.getSeconds() + now.getMilliseconds() / 1000;
   const minutes = now.getMinutes() + seconds / 60;
   const hours = (now.getHours() % 12) + minutes / 60;
-  const angles = {
-    hour: hours * 30,
-    minute: minutes * 6,
-    second: seconds * 6
-  };
-
-  for (const hands of liveHands) {
-    hands.hour.setAttribute("transform", `rotate(${angles.hour} 512 512)`);
-    hands.minute.setAttribute("transform", `rotate(${angles.minute} 512 512)`);
-    hands.second.setAttribute("transform", `rotate(${angles.second} 512 512)`);
-  }
-
-  document.querySelector("#digitalTime").textContent = now.toLocaleTimeString([], {
-    hour12: false,
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit"
+  const rotations = { hour: hours * 30, minute: minutes * 6, second: seconds * 6 };
+  documentNode.querySelectorAll("[data-hand]").forEach(node => {
+    node.setAttribute("transform", `rotate(${rotations[node.dataset.hand]} 512 512)`);
   });
-  document.querySelector("#timeZone").textContent = Intl.DateTimeFormat().resolvedOptions().timeZone.replaceAll("_", " ");
+
+  documentNode.querySelectorAll("[data-progress]").forEach(node => {
+    const circumference = Number(node.dataset.circumference);
+    node.style.strokeDashoffset = String(circumference * (1 - progressFor(node.dataset.progress, values)));
+    node.style.transition = "stroke-dashoffset 900ms cubic-bezier(.2,.8,.2,1)";
+  });
 }
 
-function tick() {
-  updateClocks();
-  requestAnimationFrame(tick);
+function updateLiveDemo() {
+  const now = new Date();
+  const values = getDemoValues(now);
+  document.querySelectorAll("[data-demo]").forEach(node => {
+    const value = values[node.dataset.demo];
+    if (value !== undefined) node.textContent = value;
+  });
+  liveDocuments.forEach(documentNode => updateSvg(documentNode, now, values));
 }
 
-tick();
+updateLiveDemo();
+setInterval(updateLiveDemo, 1000);
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: "0px 0px -8%", threshold: .08 });
+
+document.querySelectorAll(".face-card").forEach(card => observer.observe(card));
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    const selected = button.dataset.filter;
+    document.querySelectorAll(".filter").forEach(item => {
+      const active = item === button;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+    document.querySelectorAll(".face-card").forEach(card => {
+      const visible = selected === "all" || card.dataset.mode === selected;
+      card.classList.toggle("is-filtered", !visible);
+    });
+  });
+});

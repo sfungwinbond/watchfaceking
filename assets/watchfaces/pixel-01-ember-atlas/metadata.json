@@ -1,0 +1,19 @@
+{
+  "slug": "pixel-01-ember-atlas",
+  "name": "Ember Atlas",
+  "mode": "HYBRID",
+  "accent": "#ff684f",
+  "bg": "#050505",
+  "description": "A field-watch dial wrapped in live activity, heart, and energy arcs.",
+  "metrics": [
+    "heart",
+    "steps",
+    "calories"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}

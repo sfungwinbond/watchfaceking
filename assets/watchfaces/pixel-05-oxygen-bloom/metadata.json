@@ -1,0 +1,19 @@
+{
+  "slug": "pixel-05-oxygen-bloom",
+  "name": "Oxygen Bloom",
+  "mode": "VITALS",
+  "accent": "#63d9ff",
+  "bg": "#040708",
+  "description": "A radial oxygen study that turns a vital reading into a soft kinetic bloom.",
+  "metrics": [
+    "oxygen",
+    "heart",
+    "temperature"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}

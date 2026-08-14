@@ -1,0 +1,19 @@
+{
+  "slug": "pixel-07-summit-line",
+  "name": "Summit Line",
+  "mode": "OUTDOOR",
+  "accent": "#f18a52",
+  "bg": "#080706",
+  "description": "Elevation, temperature, and sunrise live inside a compact topographic dial.",
+  "metrics": [
+    "elevation",
+    "temperature",
+    "steps"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}

@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#080a0f">
-    <meta name="description" content="Ten animated watchface concepts running together in real time.">
-    <title>Watchface King — Ten Faces. One Moment.</title>
+    <meta name="theme-color" content="#f2ede4">
+    <meta name="description" content="Ten original Pixel-inspired watch faces with live demo health metrics.">
+    <title>WatchFaceKing — Health, by the hour</title>
     <link rel="stylesheet" href="styles.css">
     <script>
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -14,41 +14,107 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <header class="hero">
-      <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Live collection · 10 faces</div>
-      <h1>Ten faces.<br><em>One moment.</em></h1>
-      <p class="intro">A live gallery of original watchface systems. Every dial shares the same second, expressed in its own visual language.</p>
-      <div class="time-readout" aria-label="Current local time">
-        <span id="digitalTime">10:09:36</span>
-        <small id="timeZone">LOCAL TIME</small>
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="wordmark" href="#top" aria-label="WatchFaceKing home">
+        <span>WATCHFACE</span><span>KING</span>
+      </a>
+      <div class="nav-meta">
+        <span class="live-dot" aria-hidden="true"></span>
+        Live demo data
       </div>
-      <a class="collection-link" href="shirts">Streetwear studies <span aria-hidden="true">↗</span></a>
-      <a class="scroll-cue" href="#collection">Explore the collection <span aria-hidden="true">↓</span></a>
-    </header>
+      <a class="nav-link" href="#collection">View the ten <span aria-hidden="true">↓</span></a>
+    </nav>
 
-    <main id="collection" class="collection" aria-label="Animated watchface collection"></main>
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="kicker">Ten live health faces / 2026 collection</p>
+          <h1>Health,<br><em>by the hour.</em></h1>
+          <p class="hero-intro">A new collection built from the warm metal, rounded numerals, and ember-orange telemetry of one iconic round watch.</p>
+          <a class="primary-cta" href="#collection">Explore all faces <span aria-hidden="true">↘</span></a>
+        </div>
 
-    <footer>
-      <p>Watchface King</p>
-      <p>Original dial studies · SVG masters · Real-time motion</p>
-    </footer>
-
-    <template id="watchTemplate">
-      <article class="watch-card">
-        <div class="watch-stage">
-          <div class="halo" aria-hidden="true"></div>
-          <div class="watch" role="img">
-            <img class="layer dial" alt="">
-            <img class="layer complications" alt="" aria-hidden="true">
-            <object class="layer hands" type="image/svg+xml" aria-hidden="true"></object>
-            <div class="glass" aria-hidden="true"></div>
+        <div class="hero-product">
+          <div class="edition-stamp" aria-hidden="true"><span>WF/K</span><small>ED. 01</small></div>
+          <img src="assets/hero/pixel5-editorial.png" alt="Round titanium smartwatch with a woven gray and orange band">
+          <div class="hero-reading" aria-label="Live demo heart rate">
+            <span class="metric-icon" aria-hidden="true">♥</span>
+            <div><strong data-demo="heart">78</strong><small>BPM / LIVE</small></div>
           </div>
         </div>
-        <div class="watch-copy">
-          <p class="index"></p>
-          <h2></h2>
-          <p class="description"></p>
-          <div class="palette" aria-label="Color palette"></div>
+
+        <div class="hero-footer">
+          <p>Inspired by the supplied Pixel 5 reference.<br>Original, unbranded face systems.</p>
+          <div class="hero-time"><span data-demo="time_seconds">10:09:36</span><small>YOUR LOCAL TIME</small></div>
+        </div>
+      </section>
+
+      <section class="signal-strip" aria-label="Live demo health metrics">
+        <div class="signal-heading">
+          <span class="live-dot" aria-hidden="true"></span>
+          <p>Demo signal</p>
+        </div>
+        <dl>
+          <div><dt>Heart</dt><dd><span data-demo="heart">78</span> bpm</dd></div>
+          <div><dt>Steps</dt><dd data-demo="steps">8,742</dd></div>
+          <div><dt>Recovery</dt><dd><span data-demo="recovery">82</span>%</dd></div>
+          <div><dt>Oxygen</dt><dd data-demo="oxygen">98%</dd></div>
+          <div><dt>Sleep</dt><dd data-demo="sleep">7h 42m</dd></div>
+        </dl>
+        <p class="signal-note">Simulated values for interface preview — not medical data.</p>
+      </section>
+
+      <section class="collection" id="collection" aria-labelledby="collection-title">
+        <header class="collection-header">
+          <div>
+            <p class="kicker">01–10 / The face library</p>
+            <h2 id="collection-title">One signal.<br><em>Ten expressions.</em></h2>
+          </div>
+          <p class="collection-intro">Every design shares the same live demo feed. Rounded numerals keep readings friendly; ember status bars keep them instantly scannable.</p>
+        </header>
+
+        <div class="filters" role="group" aria-label="Filter watch faces">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All 10</button>
+          <button class="filter" type="button" data-filter="MOVE" aria-pressed="false">Move</button>
+          <button class="filter" type="button" data-filter="RECOVER" aria-pressed="false">Recover</button>
+          <button class="filter" type="button" data-filter="SLEEP" aria-pressed="false">Sleep</button>
+          <button class="filter" type="button" data-filter="OUTDOOR" aria-pressed="false">Outdoor</button>
+        </div>
+
+        <div class="face-grid" id="faceGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="manifesto">
+        <p class="kicker">Designed for the glance</p>
+        <blockquote>“The best health interface tells you enough, then gets out of your way.”</blockquote>
+        <div class="manifesto-detail">
+          <p>High contrast. Rounded values. One hot status color. Each face is an original SVG master connected to the same lightweight demo engine.</p>
+          <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="wordmark" href="#top"><span>WATCHFACE</span><span>KING</span></a>
+      <p>Ten original studies / Live local time / Simulated health data</p>
+      <p>Built for the round.</p>
+    </footer>
+
+    <template id="faceTemplate">
+      <article class="face-card">
+        <div class="face-stage">
+          <p class="face-number"></p>
+          <span class="face-mode"></span>
+          <div class="watch-wrap">
+            <div class="watch-shadow" aria-hidden="true"></div>
+            <object class="watch-face" type="image/svg+xml"></object>
+          </div>
+          <span class="demo-badge"><i aria-hidden="true"></i> Demo live</span>
+        </div>
+        <div class="face-copy">
+          <h3></h3>
+          <p class="face-description"></p>
+          <ul class="metric-list" aria-label="Metrics shown"></ul>
         </div>
       </article>
     </template>

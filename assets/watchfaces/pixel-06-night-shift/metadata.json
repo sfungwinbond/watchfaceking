@@ -1,0 +1,19 @@
+{
+  "slug": "pixel-06-night-shift",
+  "name": "Night Shift",
+  "mode": "SLEEP",
+  "accent": "#a88cff",
+  "bg": "#050508",
+  "description": "A nocturnal face for sleep duration, recovery rhythm, and tomorrow's alarm.",
+  "metrics": [
+    "sleep",
+    "recovery",
+    "resting"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}

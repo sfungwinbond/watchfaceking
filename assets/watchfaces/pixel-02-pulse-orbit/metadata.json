@@ -1,0 +1,19 @@
+{
+  "slug": "pixel-02-pulse-orbit",
+  "name": "Pulse Orbit",
+  "mode": "CARDIO",
+  "accent": "#ff4f6d",
+  "bg": "#070507",
+  "description": "Heart rate becomes the clock: one vivid orbit, one calm central readout.",
+  "metrics": [
+    "heart",
+    "activity",
+    "recovery"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}

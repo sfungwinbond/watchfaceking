@@ -1,0 +1,194 @@
+[
+  {
+    "slug": "pixel-01-ember-atlas",
+    "name": "Ember Atlas",
+    "mode": "HYBRID",
+    "accent": "#ff684f",
+    "bg": "#050505",
+    "description": "A field-watch dial wrapped in live activity, heart, and energy arcs.",
+    "metrics": [
+      "heart",
+      "steps",
+      "calories"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-02-pulse-orbit",
+    "name": "Pulse Orbit",
+    "mode": "CARDIO",
+    "accent": "#ff4f6d",
+    "bg": "#070507",
+    "description": "Heart rate becomes the clock: one vivid orbit, one calm central readout.",
+    "metrics": [
+      "heart",
+      "activity",
+      "recovery"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-03-stride-grid",
+    "name": "Stride Grid",
+    "mode": "MOVE",
+    "accent": "#ffb23f",
+    "bg": "#080706",
+    "description": "A bold typographic step counter with pace, distance, and daily progress.",
+    "metrics": [
+      "steps",
+      "distance",
+      "activity"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-04-recovery-field",
+    "name": "Recovery Field",
+    "mode": "RECOVER",
+    "accent": "#b6f06b",
+    "bg": "#060806",
+    "description": "Recovery, sleep, and resting pulse arranged as a quiet readiness dashboard.",
+    "metrics": [
+      "recovery",
+      "sleep",
+      "resting"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-05-oxygen-bloom",
+    "name": "Oxygen Bloom",
+    "mode": "VITALS",
+    "accent": "#63d9ff",
+    "bg": "#040708",
+    "description": "A radial oxygen study that turns a vital reading into a soft kinetic bloom.",
+    "metrics": [
+      "oxygen",
+      "heart",
+      "temperature"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-06-night-shift",
+    "name": "Night Shift",
+    "mode": "SLEEP",
+    "accent": "#a88cff",
+    "bg": "#050508",
+    "description": "A nocturnal face for sleep duration, recovery rhythm, and tomorrow's alarm.",
+    "metrics": [
+      "sleep",
+      "recovery",
+      "resting"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-07-summit-line",
+    "name": "Summit Line",
+    "mode": "OUTDOOR",
+    "accent": "#f18a52",
+    "bg": "#080706",
+    "description": "Elevation, temperature, and sunrise live inside a compact topographic dial.",
+    "metrics": [
+      "elevation",
+      "temperature",
+      "steps"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-08-tempo-zones",
+    "name": "Tempo Zones",
+    "mode": "TRAIN",
+    "accent": "#ff5c48",
+    "bg": "#070505",
+    "description": "Training load and heart zones animate around a fast, legible time display.",
+    "metrics": [
+      "heart",
+      "activity",
+      "calories"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-09-vital-stack",
+    "name": "Vital Stack",
+    "mode": "OVERVIEW",
+    "accent": "#f2eadf",
+    "bg": "#060606",
+    "description": "A dense but calm stack of the metrics that matter most right now.",
+    "metrics": [
+      "heart",
+      "steps",
+      "oxygen",
+      "recovery"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  },
+  {
+    "slug": "pixel-10-quiet-signal",
+    "name": "Quiet Signal",
+    "mode": "MINIMAL",
+    "accent": "#ff765e",
+    "bg": "#050505",
+    "description": "A restrained analog face with health signals tucked into four precise capsules.",
+    "metrics": [
+      "heart",
+      "steps",
+      "oxygen",
+      "sleep"
+    ],
+    "canvas": [
+      1024,
+      1024
+    ],
+    "liveDemo": true,
+    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+  }
+]

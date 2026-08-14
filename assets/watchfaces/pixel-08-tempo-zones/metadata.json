@@ -1,0 +1,19 @@
+{
+  "slug": "pixel-08-tempo-zones",
+  "name": "Tempo Zones",
+  "mode": "TRAIN",
+  "accent": "#ff5c48",
+  "bg": "#070505",
+  "description": "Training load and heart zones animate around a fast, legible time display.",
+  "metrics": [
+    "heart",
+    "activity",
+    "calories"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ],
+  "liveDemo": true,
+  "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+}
