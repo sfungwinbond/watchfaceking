@@ -238,7 +238,7 @@ def face_ember(t: dict) -> str:
         + arc_text("label-stress", "STRESS · 0–40", 359, 58, 122, 16, pale)
         + ring_icon_badge(bolt_icon(*stress_xy, .50, "currentColor"), *stress_xy, 45, bright)
         + band_text("74", 386, 114, 27, pale, "stress")
-        + arc_text("label-steps", "STEPS · 8–10K", 371, 160, 206, 15, pale)
+        + arc_text("label-steps", "STEPS · 8–10K", 371, 158, 202, 15, pale)
         + ring_icon_badge(step_icon(int(steps_xy[0]), int(steps_xy[1]), .46, "currentColor"), *steps_xy, 135, bright)
         + band_text("8,600", 386, 204, 22, pale, "ring_steps")
     )
