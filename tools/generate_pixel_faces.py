@@ -242,12 +242,12 @@ def face_ember(t: dict) -> str:
         + svg_text(512, 380, "4:20:00 PM", 32, bright, live="time_seconds_12", tracking=.8)
         + svg_text(512, 425, "77°", 32, bright, live="temperature_face")
     )
-    brand_left = polar(235, 151)
-    brand_right = polar(235, 209)
+    brand_left = polar(235, 142)
+    brand_right = polar(235, 218)
     brand_mark = (
-        f'<circle cx="{brand_left[0]:.1f}" cy="{brand_left[1]:.1f}" r="5" fill="none" stroke="{bright}" stroke-width="3"/>'
-        + arc_text("brand-auremont", "AUREMONT", 235, 158, 202, 17, pale)
-        + f'<circle cx="{brand_right[0]:.1f}" cy="{brand_right[1]:.1f}" r="5" fill="none" stroke="{bright}" stroke-width="3"/>'
+        f'<circle cx="{brand_left[0]:.1f}" cy="{brand_left[1]:.1f}" r="6" fill="none" stroke="{bright}" stroke-width="3"/>'
+        + arc_text("brand-valencourt", "VALENCOURT", 235, 153, 207, 22, pale)
+        + f'<circle cx="{brand_right[0]:.1f}" cy="{brand_right[1]:.1f}" r="6" fill="none" stroke="{bright}" stroke-width="3"/>'
     )
     return telemetry_band + gauges + complications + line_markers(r1=310, r2=330) + round_numerals(280, pale, 28) + inner_ticks + inner_values + center_readout + brand_mark + analog_hands(bright, second_tip=200, hour_deg=130, minute_deg=120, second_deg=0)
 

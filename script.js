@@ -17,7 +17,7 @@ const METRIC_LABELS = {
   oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation", stress: "Stress"
 };
 
-const ASSET_VERSION = "cv-replica-15";
+const ASSET_VERSION = "cv-replica-16";
 const DEMO_RUN_STARTED = Date.now();
 const DEMO_CLOCK_START = new Date();
 DEMO_CLOCK_START.setHours(16, 20, 0, 0);
