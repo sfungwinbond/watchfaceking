@@ -168,6 +168,12 @@ h1 em, h2 em { color: var(--ember); font-style: normal; }
   pointer-events: none;
 }
 
+/* Keep the hero watch silhouette completely unobstructed. */
+.hero-replica > .source-reference,
+.hero-replica > .hero-proof,
+.hero-replica > .edition-stamp,
+.hero-replica > .hero-reading { display: none; }
+
 .source-reference {
   position: absolute;
   z-index: 4;

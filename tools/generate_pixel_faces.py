@@ -145,7 +145,7 @@ def heart_icon(x: int, y: int, scale: float = 1, color: str = STATUS) -> str:
 
 
 def step_icon(x: int, y: int, scale: float = 1, color: str = STATUS) -> str:
-    return f'<g transform="translate({x} {y}) rotate(-32) scale({scale})" fill="{color}"><ellipse cx="-7" cy="-7" rx="9" ry="18"/><ellipse cx="9" cy="10" rx="8" ry="16"/></g>'
+    return f'<g transform="translate({x} {y}) scale({scale})" fill="{color}"><ellipse cx="-7" cy="-7" rx="9" ry="18"/><ellipse cx="9" cy="10" rx="8" ry="16"/></g>'
 
 
 def thermometer_icon(x: float, y: float, scale: float = 1, color: str = STATUS) -> str:
@@ -157,14 +157,13 @@ def bolt_icon(x: float, y: float, scale: float = 1, color: str = STATUS) -> str:
 
 
 def ring_icon_badge(markup: str, x: float, y: float, deg: float, color: str) -> str:
-    """Seat an upright icon directly into the outer gauge track."""
-    rotation = dial_rotation(deg)
+    """Seat an upright icon in the clear gap immediately before a gauge."""
     delay = -((deg % 360) / 360) * .84
     return (
-        f'<g data-ring-icon="true" filter="url(#icon-glow)" style="animation-delay:{delay:.2f}s">'
+        f'<g data-ring-icon="true" filter="url(#icon-glow)" style="animation-delay:{delay:.2f}s;color:{color}">'
         f'<circle cx="{x:.1f}" cy="{y:.1f}" r="27" fill="#070606" stroke="#241b18" stroke-width="5"/>'
-        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="23" fill="#070606" stroke="{color}" stroke-width="3" opacity=".98"/>'
-        f'<g transform="rotate({rotation:.1f} {x:.1f} {y:.1f})">{markup}</g>'
+        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="23" fill="#070606" stroke="currentColor" stroke-width="3" opacity=".98"/>'
+        f'<g>{markup}</g>'
         '</g>'
     )
 
@@ -184,8 +183,8 @@ def face_ember(t: dict) -> str:
         '<style>'
         '[data-ring-icon]{animation:icon-flash .84s ease-in-out infinite;transform-box:fill-box;transform-origin:center}'
         '[data-gauge]{animation:meter-flash .84s steps(2,end) infinite}'
-        '@keyframes icon-flash{0%,38%,100%{opacity:.58;transform:scale(.96)}50%,62%{opacity:1;transform:scale(1.12)}}'
-        '@keyframes meter-flash{0%,100%{stroke-opacity:.72}50%{stroke-opacity:1}}'
+        '@keyframes icon-flash{0%,100%{opacity:.66;transform:scale(.96);color:#ff5a36}33%{opacity:1;transform:scale(1.1);color:#ffc247}66%{opacity:1;transform:scale(1.04);color:#ff3f79}}'
+        '@keyframes meter-flash{0%,100%{stroke-opacity:.78;stroke:#ff5a36}33%{stroke-opacity:1;stroke:#ffc247}66%{stroke-opacity:1;stroke:#ff3f79}}'
         '</style>'
         '<circle cx="512" cy="512" r="376" fill="none" stroke="#120f0e" stroke-width="68"/>'
         '<circle cx="512" cy="512" r="341" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
@@ -216,23 +215,23 @@ def face_ember(t: dict) -> str:
         for deg, value in [(90, "20"), (135, "25"), (180, "30"), (225, "35"), (270, "40")]
     )
 
-    # Keep each badge near the leading cap, outside the centered label footprint.
-    temp_icon_xy = polar(376, 243)
-    heart_xy = polar(376, 333)
-    stress_xy = polar(376, 63)
-    steps_xy = polar(376, 153)
+    # Put each upright badge in the 18° gap before its gauge, exposing both caps.
+    temp_icon_xy = polar(376, 225)
+    heart_xy = polar(376, 315)
+    stress_xy = polar(376, 45)
+    steps_xy = polar(376, 135)
     complications = (
         arc_text("label-temp", "TEMP · 60–85°F", 359, 238, 302, 16, pale)
-        + ring_icon_badge(thermometer_icon(*temp_icon_xy, .52, bright), *temp_icon_xy, 243, bright)
+        + ring_icon_badge(thermometer_icon(*temp_icon_xy, .52, "currentColor"), *temp_icon_xy, 225, bright)
         + band_text("80°", 396, 294, 29, pale, "outside_temp")
         + arc_text("label-heart", "HEART · 60–100", 359, 328, 392, 16, pale)
-        + ring_icon_badge(heart_icon(int(heart_xy[0]), int(heart_xy[1] - 9), .45, accent), *heart_xy, 333, accent)
+        + ring_icon_badge(heart_icon(int(heart_xy[0]), int(heart_xy[1] - 9), .45, "currentColor"), *heart_xy, 315, accent)
         + band_text("78", 396, 24, 29, pale, "heart")
         + arc_text("label-stress", "STRESS · 0–40", 359, 58, 122, 16, pale)
-        + ring_icon_badge(bolt_icon(*stress_xy, .50, bright), *stress_xy, 63, bright)
+        + ring_icon_badge(bolt_icon(*stress_xy, .50, "currentColor"), *stress_xy, 45, bright)
         + band_text("74", 396, 114, 29, pale, "stress")
         + arc_text("label-steps", "STEPS · 8–10K", 371, 160, 206, 15, pale)
-        + ring_icon_badge(step_icon(int(steps_xy[0]), int(steps_xy[1]), .46, bright), *steps_xy, 153, bright)
+        + ring_icon_badge(step_icon(int(steps_xy[0]), int(steps_xy[1]), .46, "currentColor"), *steps_xy, 135, bright)
         + band_text("8,600", 400, 204, 24, pale, "ring_steps")
     )
 
@@ -312,13 +311,14 @@ DRAWERS = [face_ember, face_pulse, face_stride, face_recovery, face_oxygen, face
 
 def document(t: dict, content: str) -> str:
     a, bg = t["accent"], t["bg"]
+    clip_radius = 435 if t["slug"] == "pixel-01-ember-atlas" else 420
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="{t['name']} live health watch face">
   <defs>
     <radialGradient id="case" cx="36%" cy="27%" r="78%"><stop stop-color="#ece5db"/><stop offset=".24" stop-color="#8e877f"/><stop offset=".55" stop-color="#302e2c"/><stop offset=".82" stop-color="#a59e94"/><stop offset="1" stop-color="#2b2927"/></radialGradient>
     <radialGradient id="glass" cx="36%" cy="24%" r="78%"><stop stop-color="#24211f"/><stop offset=".34" stop-color="{bg}"/><stop offset="1" stop-color="#000"/></radialGradient>
     <linearGradient id="glint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".18"/><stop offset=".32" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="{a}" stop-opacity=".04"/></linearGradient>
     <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity=".62"/></filter>
-    <clipPath id="dialClip"><circle cx="512" cy="512" r="420"/></clipPath>
+    <clipPath id="dialClip"><circle cx="512" cy="512" r="{clip_radius}"/></clipPath>
   </defs>
   <circle cx="512" cy="512" r="482" fill="url(#case)" filter="url(#shadow)"/>
   <circle cx="512" cy="512" r="435" fill="#080706" stroke="#181716" stroke-width="8"/>
