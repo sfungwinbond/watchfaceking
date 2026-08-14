@@ -151,8 +151,8 @@ h1 em, h2 em { color: var(--ember); font-style: normal; }
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  overflow: hidden;
-  border-radius: 5rem 5rem 14rem 5rem;
+  overflow: visible;
+  border-radius: 50%;
   background:
     radial-gradient(circle at 50% 46%, rgba(255,104,79,.13), transparent 45%),
     linear-gradient(145deg, #1b1815, #090807 68%);
@@ -431,8 +431,8 @@ footer p:last-child { justify-self: end; }
   h1 { font-size: clamp(3.7rem, 18vw, 6rem); }
   .hero-intro { max-width: 28rem; }
   .hero-product { margin: .5rem -1rem 0; width: calc(100% + 2rem); }
-  .hero-replica { border-radius: 3rem 3rem 8rem 3rem; }
-  .hero-live-face { width: 95%; height: 95%; }
+  .hero-replica { border-radius: 50%; }
+  .hero-live-face { width: 90%; height: 90%; }
   .source-reference { width: 6.8rem; right: 3%; bottom: 3%; }
   .hero-proof { display: none; }
   .edition-stamp { right: 8%; }
