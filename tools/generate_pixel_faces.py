@@ -104,6 +104,8 @@ def status_gauge(start: float, end: float, metric: str, fill: float, color: str,
     path = f'M{x1:.1f} {y1:.1f} A{radius} {radius} 0 {large} 1 {x2:.1f} {y2:.1f}'
     return (
         f'<path d="{path}" fill="none" stroke="#3a302b" stroke-width="{width}" stroke-linecap="round" opacity=".78"/>'
+        f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{width / 2:.1f}" fill="#3a302b" opacity=".78"/>'
+        f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{width / 2:.1f}" fill="{color}" data-gauge-cap="{metric}" filter="url(#meter-glow)"/>'
         f'<path d="{path}" fill="none" stroke="{color}" stroke-width="{width}" stroke-linecap="round" pathLength="100" '
         f'stroke-dasharray="{fill:.1f} 100" data-gauge="{metric}" filter="url(#meter-glow)"/>'
     )
@@ -183,18 +185,20 @@ def face_ember(t: dict) -> str:
         '<style>'
         '[data-ring-icon]{animation:icon-flash .84s ease-in-out infinite;transform-box:fill-box;transform-origin:center}'
         '[data-gauge]{animation:meter-flash .84s steps(2,end) infinite}'
+        '[data-gauge-cap]{animation:cap-flash .84s steps(2,end) infinite}'
         '@keyframes icon-flash{0%,100%{opacity:.66;transform:scale(.96);color:#ff5a36}33%{opacity:1;transform:scale(1.1);color:#ffc247}66%{opacity:1;transform:scale(1.04);color:#ff3f79}}'
         '@keyframes meter-flash{0%,100%{stroke-opacity:.78;stroke:#ff5a36}33%{stroke-opacity:1;stroke:#ffc247}66%{stroke-opacity:1;stroke:#ff3f79}}'
+        '@keyframes cap-flash{0%,100%{fill:#ff5a36}33%{fill:#ffc247}66%{fill:#ff3f79}}'
         '</style>'
-        '<circle cx="512" cy="512" r="376" fill="none" stroke="#120f0e" stroke-width="68"/>'
-        '<circle cx="512" cy="512" r="341" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
-        '<circle cx="512" cy="512" r="411" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
+        '<circle cx="512" cy="512" r="366" fill="none" stroke="#120f0e" stroke-width="68"/>'
+        '<circle cx="512" cy="512" r="331" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
+        '<circle cx="512" cy="512" r="401" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
     )
     gauges = "".join([
-        status_gauge(234, 306, "outside_temp_value", 57, bright, width=60, radius=376),
-        status_gauge(324, 396, "ring_heart", 48, accent, width=60, radius=376),
-        status_gauge(54, 126, "stress_value", 74, rust, width=60, radius=376),
-        status_gauge(144, 216, "ring_steps", 86, bright, width=60, radius=376),
+        status_gauge(238, 302, "outside_temp_value", 57, bright, width=60, radius=366),
+        status_gauge(328, 392, "ring_heart", 48, accent, width=60, radius=366),
+        status_gauge(58, 122, "stress_value", 74, rust, width=60, radius=366),
+        status_gauge(148, 212, "ring_steps", 86, bright, width=60, radius=366),
     ])
 
     inner_ticks_parts = []
@@ -215,11 +219,11 @@ def face_ember(t: dict) -> str:
         for deg, value in [(90, "20"), (135, "25"), (180, "30"), (225, "35"), (270, "40")]
     )
 
-    # Put each upright badge in the 18° gap before its gauge, exposing both caps.
-    temp_icon_xy = polar(376, 225)
-    heart_xy = polar(376, 315)
-    stress_xy = polar(376, 45)
-    steps_xy = polar(376, 135)
+    # Put each upright badge in the 26° gap before its gauge, clear of both caps.
+    temp_icon_xy = polar(366, 225)
+    heart_xy = polar(366, 315)
+    stress_xy = polar(366, 45)
+    steps_xy = polar(366, 135)
     complications = (
         arc_text("label-temp", "TEMP · 60–85°F", 359, 238, 302, 16, pale)
         + ring_icon_badge(thermometer_icon(*temp_icon_xy, .52, "currentColor"), *temp_icon_xy, 225, bright)
@@ -240,7 +244,7 @@ def face_ember(t: dict) -> str:
         + svg_text(512, 380, "10:10:30 PM", 32, bright, live="time_seconds_12", tracking=.8)
         + svg_text(512, 425, "77°", 32, bright, live="temperature_face")
     )
-    return telemetry_band + gauges + complications + line_markers(r1=320, r2=340) + round_numerals(286, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright)
+    return telemetry_band + gauges + complications + line_markers(r1=310, r2=330) + round_numerals(280, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright)
 
 
 def face_pulse(t: dict) -> str:
@@ -311,20 +315,24 @@ DRAWERS = [face_ember, face_pulse, face_stride, face_recovery, face_oxygen, face
 
 def document(t: dict, content: str) -> str:
     a, bg = t["accent"], t["bg"]
-    clip_radius = 435 if t["slug"] == "pixel-01-ember-atlas" else 420
+    glass_rim = (
+        '\n  <circle cx="512" cy="512" r="420" fill="none" stroke="#3b3530" '
+        'stroke-width="3" pointer-events="none"/>'
+        if t["slug"] == "pixel-01-ember-atlas" else ""
+    )
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="{t['name']} live health watch face">
   <defs>
     <radialGradient id="case" cx="36%" cy="27%" r="78%"><stop stop-color="#ece5db"/><stop offset=".24" stop-color="#8e877f"/><stop offset=".55" stop-color="#302e2c"/><stop offset=".82" stop-color="#a59e94"/><stop offset="1" stop-color="#2b2927"/></radialGradient>
     <radialGradient id="glass" cx="36%" cy="24%" r="78%"><stop stop-color="#24211f"/><stop offset=".34" stop-color="{bg}"/><stop offset="1" stop-color="#000"/></radialGradient>
     <linearGradient id="glint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff" stop-opacity=".18"/><stop offset=".32" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="{a}" stop-opacity=".04"/></linearGradient>
     <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity=".62"/></filter>
-    <clipPath id="dialClip"><circle cx="512" cy="512" r="{clip_radius}"/></clipPath>
+    <clipPath id="dialClip"><circle cx="512" cy="512" r="420"/></clipPath>
   </defs>
   <circle cx="512" cy="512" r="482" fill="url(#case)" filter="url(#shadow)"/>
   <circle cx="512" cy="512" r="435" fill="#080706" stroke="#181716" stroke-width="8"/>
   <circle cx="512" cy="512" r="420" fill="url(#glass)"/>
   <g clip-path="url(#dialClip)">{content}</g>
-  <circle cx="512" cy="512" r="420" fill="url(#glint)" pointer-events="none"/>
+  <circle cx="512" cy="512" r="420" fill="url(#glint)" pointer-events="none"/>{glass_rim}
   <path d="M207 329 A350 350 0 0 1 418 174" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".12"/>
 </svg>\n'''
 
