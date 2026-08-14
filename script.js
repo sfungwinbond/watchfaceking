@@ -17,6 +17,8 @@ const METRIC_LABELS = {
   oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation"
 };
 
+const ASSET_VERSION = "cv-replica-2";
+
 const faceGrid = document.querySelector("#faceGrid");
 const template = document.querySelector("#faceTemplate");
 const liveDocuments = new Set();
@@ -33,7 +35,7 @@ function createFace(face, index) {
   card.querySelector(".face-mode").textContent = face.mode;
   card.querySelector("h3").textContent = face.name;
   card.querySelector(".face-description").textContent = face.description;
-  object.data = `assets/watchfaces/${face.slug}/face.svg`;
+  object.data = `assets/watchfaces/${face.slug}/face.svg?v=${ASSET_VERSION}`;
   object.setAttribute("aria-label", `${face.name}, live demo watch face`);
 
   face.metrics.forEach(metric => {
@@ -55,6 +57,16 @@ function createFace(face, index) {
 }
 
 FACES.forEach((face, index) => faceGrid.append(createFace(face, index)));
+
+const heroFace = document.querySelector(".hero-live-face");
+heroFace.addEventListener("load", () => {
+  try {
+    liveDocuments.add(heroFace.contentDocument);
+    updateLiveDemo();
+  } catch (error) {
+    console.warn("Unable to activate hero replica", error);
+  }
+});
 
 function getDemoValues(now = new Date()) {
   const elapsed = now.getTime() / 1000;

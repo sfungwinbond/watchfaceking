@@ -147,13 +147,69 @@ h1 em, h2 em { color: var(--ember); font-style: normal; }
   filter: blur(90px);
 }
 
-.hero-product img {
+.hero-replica {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 5rem 5rem 14rem 5rem;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255,104,79,.13), transparent 45%),
+    linear-gradient(145deg, #1b1815, #090807 68%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.07);
+}
+
+.hero-live-face {
+  width: 88%;
+  height: 88%;
+  display: block;
+  border: 0;
+  filter: drop-shadow(0 2.5rem 3rem rgba(0,0,0,.48));
+  pointer-events: none;
+}
+
+.source-reference {
+  position: absolute;
+  z-index: 4;
+  right: 3.8%;
+  bottom: 4.5%;
+  width: 9.5rem;
+  margin: 0;
+  padding: .4rem;
+  border-radius: 1.2rem;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 1.5rem 3rem rgba(0,0,0,.3);
+  transform: rotate(3deg);
+}
+
+.source-reference img {
   width: 100%;
   display: block;
-  border-radius: 46% 46% 5rem 5rem;
-  mix-blend-mode: multiply;
-  filter: saturate(.92) contrast(1.02);
+  border-radius: .9rem;
 }
+
+.source-reference figcaption {
+  padding: .45rem .35rem .2rem;
+  font-size: .48rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.hero-proof {
+  position: absolute;
+  z-index: 3;
+  right: 5%;
+  top: 33%;
+  display: grid;
+  gap: .35rem;
+  color: #fff;
+  text-align: right;
+}
+
+.hero-proof strong { color: var(--ember); font: 700 .7rem var(--rounded); letter-spacing: .12em; text-transform: uppercase; }
+.hero-proof span { color: #77716b; font-size: .54rem; line-height: 1.5; letter-spacing: .1em; text-transform: uppercase; }
 
 .edition-stamp {
   position: absolute;
@@ -169,6 +225,8 @@ h1 em, h2 em { color: var(--ember); font-style: normal; }
   border-radius: 50%;
   transform: rotate(8deg);
 }
+
+.hero-replica .edition-stamp { color: #f4efe8; border-color: rgba(255,255,255,.2); }
 
 .edition-stamp span { font: 800 1.1rem var(--rounded); }
 .edition-stamp small { font-size: .52rem; letter-spacing: .2em; }
@@ -372,7 +430,11 @@ footer p:last-child { justify-self: end; }
   .hero { padding-top: 7rem; }
   h1 { font-size: clamp(3.7rem, 18vw, 6rem); }
   .hero-intro { max-width: 28rem; }
-  .hero-product { margin: .5rem -1.8rem 0; width: calc(100% + 3.6rem); }
+  .hero-product { margin: .5rem -1rem 0; width: calc(100% + 2rem); }
+  .hero-replica { border-radius: 3rem 3rem 8rem 3rem; }
+  .hero-live-face { width: 95%; height: 95%; }
+  .source-reference { width: 6.8rem; right: 3%; bottom: 3%; }
+  .hero-proof { display: none; }
   .edition-stamp { right: 8%; }
   .hero-reading { left: 7%; }
   .hero-footer p { display: none; }
