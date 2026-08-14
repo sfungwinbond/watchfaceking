@@ -88,11 +88,12 @@ def round_numerals(r: int = 336, color: str = "#f7f4ed", size: int = 28) -> str:
     )
 
 
-def analog_hands(accent: str, second_tip: int = 155) -> str:
+def analog_hands(accent: str, second_tip: int = 155, hour_deg: float = 300,
+                 minute_deg: float = 55, second_deg: float = 210) -> str:
     return f'''<g>
-      <g data-hand="hour" transform="rotate(300 512 512)"><path d="M492 534 L500 325 Q512 298 524 325 L532 534Z" fill="#f7f4ed"/></g>
-      <g data-hand="minute" transform="rotate(55 512 512)"><path d="M500 538 L504 192 Q512 166 520 192 L524 538Z" fill="#f7f4ed"/></g>
-      <g data-hand="second" transform="rotate(210 512 512)"><line x1="512" y1="584" x2="512" y2="{second_tip}" stroke="{accent}" stroke-width="6" stroke-linecap="round"/></g>
+      <g data-hand="hour" transform="rotate({hour_deg} 512 512)"><path d="M492 534 L500 325 Q512 298 524 325 L532 534Z" fill="#f7f4ed"/></g>
+      <g data-hand="minute" transform="rotate({minute_deg} 512 512)"><path d="M500 538 L504 192 Q512 166 520 192 L524 538Z" fill="#f7f4ed"/></g>
+      <g data-hand="second" transform="rotate({second_deg} 512 512)"><line x1="512" y1="584" x2="512" y2="{second_tip}" stroke="{accent}" stroke-width="6" stroke-linecap="round"/></g>
       <circle cx="512" cy="512" r="24" fill="{accent}"/><circle cx="512" cy="512" r="8" fill="#111"/>
     </g>'''
 
@@ -238,10 +239,10 @@ def face_ember(t: dict) -> str:
 
     center_readout = (
         svg_text(512, 331, "AUG 20", 34, bright, live="date", tracking=2)
-        + svg_text(512, 380, "10:10:30 PM", 32, bright, live="time_seconds_12", tracking=.8)
+        + svg_text(512, 380, "4:20:00 PM", 32, bright, live="time_seconds_12", tracking=.8)
         + svg_text(512, 425, "77°", 32, bright, live="temperature_face")
     )
-    return telemetry_band + gauges + complications + line_markers(r1=310, r2=330) + round_numerals(280, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright, second_tip=200)
+    return telemetry_band + gauges + complications + line_markers(r1=310, r2=330) + round_numerals(280, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright, second_tip=200, hour_deg=130, minute_deg=120, second_deg=0)
 
 
 def face_pulse(t: dict) -> str:

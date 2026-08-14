@@ -17,7 +17,10 @@ const METRIC_LABELS = {
   oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation", stress: "Stress"
 };
 
-const ASSET_VERSION = "cv-replica-12";
+const ASSET_VERSION = "cv-replica-13";
+const DEMO_RUN_STARTED = Date.now();
+const DEMO_CLOCK_START = new Date();
+DEMO_CLOCK_START.setHours(16, 20, 0, 0);
 
 const faceGrid = document.querySelector("#faceGrid");
 const template = document.querySelector("#faceTemplate");
@@ -137,7 +140,7 @@ function updateSvg(documentNode, now, values) {
 }
 
 function updateLiveDemo() {
-  const now = new Date();
+  const now = new Date(DEMO_CLOCK_START.getTime() + Date.now() - DEMO_RUN_STARTED);
   const values = getDemoValues(now);
   document.querySelectorAll("[data-demo]").forEach(node => {
     const value = values[node.dataset.demo];
