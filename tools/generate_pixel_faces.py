@@ -100,14 +100,18 @@ def analog_hands(accent: str) -> str:
 def status_gauge(start: float, end: float, metric: str, fill: float, color: str, width: int = 22, radius: int = 400) -> str:
     x1, y1 = polar(radius, start)
     x2, y2 = polar(radius, end)
+    active_x, active_y = polar(radius, start + (end - start) * fill / 100)
     large = 1 if (end - start) % 360 > 180 else 0
     path = f'M{x1:.1f} {y1:.1f} A{radius} {radius} 0 {large} 1 {x2:.1f} {y2:.1f}'
     return (
         f'<path d="{path}" fill="none" stroke="#3a302b" stroke-width="{width}" stroke-linecap="round" opacity=".78"/>'
         f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{width / 2:.1f}" fill="#3a302b" opacity=".78"/>'
+        f'<circle cx="{x2:.1f}" cy="{y2:.1f}" r="{width / 2:.1f}" fill="#3a302b" opacity=".78"/>'
         f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{width / 2:.1f}" fill="{color}" data-gauge-cap="{metric}" filter="url(#meter-glow)"/>'
         f'<path d="{path}" fill="none" stroke="{color}" stroke-width="{width}" stroke-linecap="round" pathLength="100" '
         f'stroke-dasharray="{fill:.1f} 100" data-gauge="{metric}" filter="url(#meter-glow)"/>'
+        f'<circle cx="{active_x:.1f}" cy="{active_y:.1f}" r="{width / 2:.1f}" fill="{color}" '
+        f'data-gauge-end="{metric}" filter="url(#meter-glow)"/>'
     )
 
 
@@ -185,7 +189,7 @@ def face_ember(t: dict) -> str:
         '<style>'
         '[data-ring-icon]{animation:icon-flash .84s ease-in-out infinite;transform-box:fill-box;transform-origin:center}'
         '[data-gauge]{animation:meter-flash .84s steps(2,end) infinite}'
-        '[data-gauge-cap]{animation:cap-flash .84s steps(2,end) infinite}'
+        '[data-gauge-cap],[data-gauge-end]{animation:cap-flash .84s steps(2,end) infinite}'
         '@keyframes icon-flash{0%,100%{opacity:.66;transform:scale(.96);color:#ff5a36}33%{opacity:1;transform:scale(1.1);color:#ffc247}66%{opacity:1;transform:scale(1.04);color:#ff3f79}}'
         '@keyframes meter-flash{0%,100%{stroke-opacity:.78;stroke:#ff5a36}33%{stroke-opacity:1;stroke:#ffc247}66%{stroke-opacity:1;stroke:#ff3f79}}'
         '@keyframes cap-flash{0%,100%{fill:#ff5a36}33%{fill:#ffc247}66%{fill:#ff3f79}}'
@@ -227,16 +231,16 @@ def face_ember(t: dict) -> str:
     complications = (
         arc_text("label-temp", "TEMP · 60–85°F", 359, 238, 302, 16, pale)
         + ring_icon_badge(thermometer_icon(*temp_icon_xy, .52, "currentColor"), *temp_icon_xy, 225, bright)
-        + band_text("80°", 396, 294, 29, pale, "outside_temp")
+        + band_text("80°", 386, 294, 27, pale, "outside_temp")
         + arc_text("label-heart", "HEART · 60–100", 359, 328, 392, 16, pale)
         + ring_icon_badge(heart_icon(int(heart_xy[0]), int(heart_xy[1] - 9), .45, "currentColor"), *heart_xy, 315, accent)
-        + band_text("78", 396, 24, 29, pale, "heart")
+        + band_text("78", 386, 24, 27, pale, "heart")
         + arc_text("label-stress", "STRESS · 0–40", 359, 58, 122, 16, pale)
         + ring_icon_badge(bolt_icon(*stress_xy, .50, "currentColor"), *stress_xy, 45, bright)
-        + band_text("74", 396, 114, 29, pale, "stress")
+        + band_text("74", 386, 114, 27, pale, "stress")
         + arc_text("label-steps", "STEPS · 8–10K", 371, 160, 206, 15, pale)
         + ring_icon_badge(step_icon(int(steps_xy[0]), int(steps_xy[1]), .46, "currentColor"), *steps_xy, 135, bright)
-        + band_text("8,600", 400, 204, 24, pale, "ring_steps")
+        + band_text("8,600", 386, 204, 22, pale, "ring_steps")
     )
 
     center_readout = (
@@ -315,6 +319,7 @@ DRAWERS = [face_ember, face_pulse, face_stride, face_recovery, face_oxygen, face
 
 def document(t: dict, content: str) -> str:
     a, bg = t["accent"], t["bg"]
+    case_filter = "" if t["slug"] == "pixel-01-ember-atlas" else ' filter="url(#shadow)"'
     glass_rim = (
         '\n  <circle cx="512" cy="512" r="420" fill="none" stroke="#3b3530" '
         'stroke-width="3" pointer-events="none"/>'
@@ -328,7 +333,7 @@ def document(t: dict, content: str) -> str:
     <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#000" flood-opacity=".62"/></filter>
     <clipPath id="dialClip"><circle cx="512" cy="512" r="420"/></clipPath>
   </defs>
-  <circle cx="512" cy="512" r="482" fill="url(#case)" filter="url(#shadow)"/>
+  <circle cx="512" cy="512" r="482" fill="url(#case)"{case_filter}/>
   <circle cx="512" cy="512" r="435" fill="#080706" stroke="#181716" stroke-width="8"/>
   <circle cx="512" cy="512" r="420" fill="url(#glass)"/>
   <g clip-path="url(#dialClip)">{content}</g>

@@ -17,7 +17,7 @@ const METRIC_LABELS = {
   oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation", stress: "Stress"
 };
 
-const ASSET_VERSION = "cv-replica-8";
+const ASSET_VERSION = "cv-replica-9";
 
 const faceGrid = document.querySelector("#faceGrid");
 const template = document.querySelector("#faceTemplate");
@@ -133,6 +133,13 @@ function updateSvg(documentNode, now, values) {
     const fill = progressFor(node.dataset.gauge, values) * 100;
     node.style.strokeDasharray = `${fill.toFixed(1)} 100`;
     node.style.transition = "stroke-dasharray 300ms cubic-bezier(.2,.8,.2,1)";
+
+    const endCap = documentNode.querySelector(`[data-gauge-end="${node.dataset.gauge}"]`);
+    if (endCap) {
+      const point = node.getPointAtLength(node.getTotalLength() * fill / 100);
+      endCap.setAttribute("cx", point.x.toFixed(1));
+      endCap.setAttribute("cy", point.y.toFixed(1));
+    }
   });
 }
 
