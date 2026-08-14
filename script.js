@@ -17,7 +17,7 @@ const METRIC_LABELS = {
   oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation", stress: "Stress"
 };
 
-const ASSET_VERSION = "cv-replica-11";
+const ASSET_VERSION = "cv-replica-12";
 
 const faceGrid = document.querySelector("#faceGrid");
 const template = document.querySelector("#faceTemplate");

@@ -88,11 +88,11 @@ def round_numerals(r: int = 336, color: str = "#f7f4ed", size: int = 28) -> str:
     )
 
 
-def analog_hands(accent: str) -> str:
+def analog_hands(accent: str, second_tip: int = 155) -> str:
     return f'''<g>
       <g data-hand="hour" transform="rotate(300 512 512)"><path d="M492 534 L500 325 Q512 298 524 325 L532 534Z" fill="#f7f4ed"/></g>
       <g data-hand="minute" transform="rotate(55 512 512)"><path d="M500 538 L504 192 Q512 166 520 192 L524 538Z" fill="#f7f4ed"/></g>
-      <g data-hand="second" transform="rotate(210 512 512)"><line x1="512" y1="584" x2="512" y2="155" stroke="{accent}" stroke-width="6" stroke-linecap="round"/></g>
+      <g data-hand="second" transform="rotate(210 512 512)"><line x1="512" y1="584" x2="512" y2="{second_tip}" stroke="{accent}" stroke-width="6" stroke-linecap="round"/></g>
       <circle cx="512" cy="512" r="24" fill="{accent}"/><circle cx="512" cy="512" r="8" fill="#111"/>
     </g>'''
 
@@ -109,14 +109,15 @@ def status_gauge(start: float, end: float, metric: str, fill: float, color: str,
     )
 
 
-def band_text(value: str, radius: int, deg: float, size: int, color: str, live: str | None = None) -> str:
+def band_text(value: str, radius: int, deg: float, size: int, color: str, live: str | None = None,
+              rotation: float | None = None) -> str:
     x, y = polar(radius, deg)
-    rotation = dial_rotation(deg)
+    text_rotation = dial_rotation(deg) if rotation is None else rotation
     hook = f' data-live="{live}"' if live else ""
     return (
         f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="middle" dominant-baseline="middle" fill="{color}" '
         f'font-family="Arial Rounded MT Bold,Nunito,Arial,sans-serif" font-size="{size}" font-weight="800" '
-        f'transform="rotate({rotation:.1f} {x:.1f} {y:.1f})"{hook}>{value}</text>'
+        f'transform="rotate({text_rotation:.1f} {x:.1f} {y:.1f})"{hook}>{value}</text>'
     )
 
 
@@ -223,16 +224,16 @@ def face_ember(t: dict) -> str:
     complications = (
         arc_text("label-temp", "TEMP · 60–85°F", 359, 238, 302, 16, pale)
         + ring_icon_badge(thermometer_icon(*temp_icon_xy, .52, "currentColor"), *temp_icon_xy, 225, bright)
-        + band_text("80°", 386, 294, 27, pale, "outside_temp")
+        + band_text("80°", 366, 294, 27, pale, "outside_temp")
         + arc_text("label-heart", "HEART · 60–100", 359, 328, 392, 16, pale)
         + ring_icon_badge(heart_icon(int(heart_xy[0]), int(heart_xy[1] - 9), .45, "currentColor"), *heart_xy, 315, accent)
-        + band_text("78", 386, 24, 27, pale, "heart")
+        + band_text("78", 366, 24, 27, pale, "heart")
         + arc_text("label-stress", "STRESS · 0–40", 359, 58, 122, 16, pale)
         + ring_icon_badge(bolt_icon(*stress_xy, .50, "currentColor"), *stress_xy, 45, bright)
-        + band_text("74", 386, 114, 27, pale, "stress")
+        + band_text("74", 366, 114, 27, pale, "stress", rotation=114)
         + arc_text("label-steps", "STEPS · 8–10K", 371, 158, 202, 15, pale)
         + ring_icon_badge(step_icon(int(steps_xy[0]), int(steps_xy[1]), .46, "currentColor"), *steps_xy, 135, bright)
-        + band_text("8,600", 386, 204, 22, pale, "ring_steps")
+        + band_text("8,600", 366, 204, 22, pale, "ring_steps")
     )
 
     center_readout = (
@@ -240,7 +241,7 @@ def face_ember(t: dict) -> str:
         + svg_text(512, 380, "10:10:30 PM", 32, bright, live="time_seconds_12", tracking=.8)
         + svg_text(512, 425, "77°", 32, bright, live="temperature_face")
     )
-    return telemetry_band + gauges + complications + line_markers(r1=310, r2=330) + round_numerals(280, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright)
+    return telemetry_band + gauges + complications + line_markers(r1=310, r2=330) + round_numerals(280, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright, second_tip=200)
 
 
 def face_pulse(t: dict) -> str:
