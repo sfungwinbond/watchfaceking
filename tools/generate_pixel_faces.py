@@ -225,7 +225,7 @@ def face_ember(t: dict) -> str:
     complications = (
         arc_text("label-temp", "TEMP · 60–85°F", 359, 238, 302, 16, pale)
         + ring_icon_badge(thermometer_icon(*temp_icon_xy, .52, "currentColor"), *temp_icon_xy, 225, bright)
-        + band_text("80°", 366, 294, 27, pale, "outside_temp")
+        + band_text("77°", 366, 294, 27, pale, "outside_temp")
         + arc_text("label-heart", "HEART · 60–100", 359, 328, 392, 16, pale)
         + ring_icon_badge(heart_icon(int(heart_xy[0]), int(heart_xy[1] - 9), .45, "currentColor"), *heart_xy, 315, accent)
         + band_text("78", 366, 24, 27, pale, "heart")

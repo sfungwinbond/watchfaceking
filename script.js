@@ -17,7 +17,7 @@ const METRIC_LABELS = {
   oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation", stress: "Stress"
 };
 
-const ASSET_VERSION = "cv-replica-13";
+const ASSET_VERSION = "cv-replica-14";
 const DEMO_RUN_STARTED = Date.now();
 const DEMO_CLOCK_START = new Date();
 DEMO_CLOCK_START.setHours(16, 20, 0, 0);
@@ -98,7 +98,7 @@ function getDemoValues(now = new Date()) {
     ring_heart: String(heart),
     outside_temp: `${outsideTemp}°`, outside_temp_value: String(outsideTemp),
     stress: String(stress), stress_value: String(stress),
-    ring_steps: ringSteps.toLocaleString(), temperature_face: "77°"
+    ring_steps: ringSteps.toLocaleString(), temperature_face: `${outsideTemp}°`
   };
 }
 
