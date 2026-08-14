@@ -20,7 +20,7 @@ C = 512
 STATUS = "#ff684f"
 
 FACES = [
-    dict(slug="pixel-01-ember-atlas", name="Reference Replica", mode="HYBRID", accent="#dd715d", bg="#050505", description="A CV-measured redraw of the supplied face: rounded hours, health icons, inner seconds, and coral telemetry arcs.", metrics=["heart", "steps", "temperature"]),
+    dict(slug="pixel-01-ember-atlas", name="Reference Replica", mode="HYBRID", accent="#ff7358", bg="#050505", description="A CV-measured redraw with rounded hours, an open inner scale, and one glowing bright-orange telemetry band.", metrics=["heart", "steps", "temperature", "stress"]),
     dict(slug="pixel-02-pulse-orbit", name="Pulse Orbit", mode="CARDIO", accent="#ff4f6d", bg="#070507", description="Heart rate becomes the clock: one vivid orbit, one calm central readout.", metrics=["heart", "activity", "recovery"]),
     dict(slug="pixel-03-stride-grid", name="Stride Grid", mode="MOVE", accent="#ffb23f", bg="#080706", description="A bold typographic step counter with pace, distance, and daily progress.", metrics=["steps", "distance", "activity"]),
     dict(slug="pixel-04-recovery-field", name="Recovery Field", mode="RECOVER", accent="#b6f06b", bg="#060806", description="Recovery, sleep, and resting pulse arranged as a quiet readiness dashboard.", metrics=["recovery", "sleep", "resting"]),
@@ -36,6 +36,16 @@ FACES = [
 def polar(r: float, deg: float) -> tuple[float, float]:
     angle = math.radians(deg - 90)
     return C + r * math.cos(angle), C + r * math.sin(angle)
+
+
+def dial_rotation(deg: float) -> float:
+    """Return an upright tangent rotation for any position on the dial."""
+    normalized = deg % 360
+    if normalized <= 90:
+        return normalized
+    if normalized <= 270:
+        return normalized - 180
+    return normalized - 360
 
 
 def svg_text(x: float, y: float, value: str, size: int, fill: str = "#f7f4ed", *,
@@ -95,13 +105,13 @@ def status_gauge(start: float, end: float, metric: str, fill: float, color: str,
     return (
         f'<path d="{path}" fill="none" stroke="#3a302b" stroke-width="{width}" stroke-linecap="round" opacity=".78"/>'
         f'<path d="{path}" fill="none" stroke="{color}" stroke-width="{width}" stroke-linecap="round" pathLength="100" '
-        f'stroke-dasharray="{fill:.1f} 100" data-gauge="{metric}"/>'
+        f'stroke-dasharray="{fill:.1f} 100" data-gauge="{metric}" filter="url(#meter-glow)"/>'
     )
 
 
 def band_text(value: str, radius: int, deg: float, size: int, color: str, live: str | None = None) -> str:
     x, y = polar(radius, deg)
-    rotation = deg if deg <= 90 else deg - 180 if deg <= 270 else deg - 360
+    rotation = dial_rotation(deg)
     hook = f' data-live="{live}"' if live else ""
     return (
         f'<text x="{x:.1f}" y="{y:.1f}" text-anchor="middle" dominant-baseline="middle" fill="{color}" '
@@ -125,7 +135,7 @@ def arc_text(identifier: str, value: str, radius: int, start: float, end: float,
     return (
         f'<defs><path id="{identifier}" d="{path}"/></defs>'
         f'<text fill="{color}" font-family="Arial Rounded MT Bold,Nunito,Arial,sans-serif" '
-        f'font-size="{size}" font-weight="800" letter-spacing="1.7">'
+        f'font-size="{size}" font-weight="800" letter-spacing="1.1">'
         f'<textPath href="#{identifier}" startOffset="50%" text-anchor="middle">{value}</textPath></text>'
     )
 
@@ -142,28 +152,50 @@ def thermometer_icon(x: float, y: float, scale: float = 1, color: str = STATUS) 
     return f'<g transform="translate({x:.1f} {y:.1f}) scale({scale})" fill="none" stroke="{color}" stroke-width="7" stroke-linecap="round"><path d="M0-25 V12"/><circle cy="22" r="12" fill="{color}"/><path d="M0-25 A8 8 0 0 1 8-17 V12"/></g>'
 
 
-def arrow_icon(x: float, y: float, scale: float = 1, color: str = STATUS) -> str:
-    return f'<g transform="translate({x:.1f} {y:.1f}) scale({scale})" fill="none" stroke="{color}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M0 24 V-22 M-16-6 L0-22 L16-6"/></g>'
-
-
-def pulse_icon(x: float, y: float, scale: float = 1, color: str = STATUS) -> str:
-    return f'<path d="M-27 0 H-13 L-5-17 L7 18 L15 0 H29" transform="translate({x:.1f} {y:.1f}) scale({scale})" fill="none" stroke="{color}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>'
-
-
 def bolt_icon(x: float, y: float, scale: float = 1, color: str = STATUS) -> str:
     return f'<path d="M6-27 L-18 6 H-3 L-9 29 L19-8 H4Z" transform="translate({x:.1f} {y:.1f}) scale({scale})" fill="{color}"/>'
 
 
+def ring_icon_badge(markup: str, x: float, y: float, deg: float, color: str) -> str:
+    """Seat an upright icon directly into the outer gauge track."""
+    rotation = dial_rotation(deg)
+    delay = -((deg % 360) / 360) * .84
+    return (
+        f'<g data-ring-icon="true" filter="url(#icon-glow)" style="animation-delay:{delay:.2f}s">'
+        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="34" fill="#070606" stroke="#241b18" stroke-width="6"/>'
+        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="29" fill="#070606" stroke="{color}" stroke-width="4" opacity=".98"/>'
+        f'<g transform="rotate({rotation:.1f} {x:.1f} {y:.1f})">{markup}</g>'
+        '</g>'
+    )
+
+
 def face_ember(t: dict) -> str:
     accent = t["accent"]
-    pale, rust, bright = "#f4e8df", "#8f3d24", "#ff6b57"
+    pale, rust, bright = "#f4e8df", "#e24624", "#ff5a36"
+    telemetry_band = (
+        '<defs>'
+        '<filter id="meter-glow" x="-25%" y="-25%" width="150%" height="150%">'
+        '<feGaussianBlur stdDeviation="4.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>'
+        '</filter>'
+        '<filter id="icon-glow" x="-80%" y="-80%" width="260%" height="260%">'
+        '<feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>'
+        '</filter>'
+        '</defs>'
+        '<style>'
+        '[data-ring-icon]{animation:icon-flash .84s ease-in-out infinite;transform-box:fill-box;transform-origin:center}'
+        '[data-gauge]{animation:meter-flash .84s steps(2,end) infinite}'
+        '@keyframes icon-flash{0%,38%,100%{opacity:.58;transform:scale(.96)}50%,62%{opacity:1;transform:scale(1.12)}}'
+        '@keyframes meter-flash{0%,100%{stroke-opacity:.72}50%{stroke-opacity:1}}'
+        '</style>'
+        '<circle cx="512" cy="512" r="382" fill="none" stroke="#120f0e" stroke-width="120"/>'
+        '<circle cx="512" cy="512" r="321" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
+        '<circle cx="512" cy="512" r="443" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
+    )
     gauges = "".join([
-        status_gauge(276, 324, "outside_temp_value", 57, bright, width=18, radius=420),
-        status_gauge(336, 384, "ring_heart", 48, accent, width=18, radius=420),
-        status_gauge(36, 84, "elevation_gain_value", 60, rust, width=18, radius=420),
-        status_gauge(96, 144, "stress_value", 74, bright, width=18, radius=420),
-        status_gauge(156, 204, "heart_range_value", 58, rust, width=18, radius=420),
-        status_gauge(216, 264, "ring_steps", 10, bright, width=18, radius=420),
+        status_gauge(230, 310, "outside_temp_value", 57, bright, width=112, radius=382),
+        status_gauge(320, 400, "ring_heart", 48, accent, width=112, radius=382),
+        status_gauge(50, 130, "stress_value", 74, rust, width=112, radius=382),
+        status_gauge(140, 220, "ring_steps", 86, bright, width=112, radius=382),
     ])
 
     inner_ticks_parts = []
@@ -184,25 +216,23 @@ def face_ember(t: dict) -> str:
         for deg, value in [(90, "20"), (135, "25"), (180, "30"), (225, "35"), (270, "40")]
     )
 
-    temp_icon_xy = polar(380, 288)
-    heart_xy = polar(380, 348)
-    elevation_xy = polar(380, 48)
-    stress_xy = polar(380, 108)
-    pulse_xy = polar(380, 168)
-    steps_xy = polar(380, 228)
+    temp_icon_xy = polar(406, 255)
+    heart_xy = polar(406, 345)
+    stress_xy = polar(406, 75)
+    steps_xy = polar(406, 165)
     complications = (
-        arc_text("label-temp", "TEMP · EXPECT 60–85°F", 352, 280, 320, 11, pale)
-        + thermometer_icon(*temp_icon_xy, .34, bright) + band_text("80°", 380, 308, 21, pale, "outside_temp")
-        + arc_text("label-heart", "HEART · EXPECT 60–100", 352, 340, 380, 11, pale)
-        + heart_icon(int(heart_xy[0]), int(heart_xy[1] - 6), .28, accent) + band_text("78", 380, 368, 21, pale, "heart")
-        + arc_text("label-elev", "ELEV · TARGET 10–20", 352, 40, 80, 11, pale)
-        + arrow_icon(*elevation_xy, .30, rust) + band_text("+15", 380, 68, 21, pale, "elevation_gain")
-        + arc_text("label-stress", "STRESS · EXPECT 0–40", 352, 100, 140, 11, pale)
-        + bolt_icon(*stress_xy, .32, bright) + band_text("74", 380, 128, 21, pale, "stress")
-        + arc_text("label-range", "HR ZONE · TARGET BPM", 352, 160, 200, 11, pale)
-        + pulse_icon(*pulse_xy, .31, rust) + band_text("84–105", 380, 188, 17, pale, "heart_range")
-        + arc_text("label-steps", "STEPS · TARGET 8–10K", 352, 220, 260, 11, pale)
-        + step_icon(int(steps_xy[0]), int(steps_xy[1]), .28, bright) + band_text("972", 380, 248, 21, pale, "ring_steps")
+        arc_text("label-temp", "TEMP · 60–85°F", 365, 238, 302, 18, pale)
+        + ring_icon_badge(thermometer_icon(*temp_icon_xy, .62, bright), *temp_icon_xy, 255, bright)
+        + band_text("80°", 408, 285, 34, pale, "outside_temp")
+        + arc_text("label-heart", "HEART · 60–100", 365, 328, 392, 18, pale)
+        + ring_icon_badge(heart_icon(int(heart_xy[0]), int(heart_xy[1] - 10), .52, accent), *heart_xy, 345, accent)
+        + band_text("78", 408, 15, 34, pale, "heart")
+        + arc_text("label-stress", "STRESS · 0–40", 365, 58, 122, 18, pale)
+        + ring_icon_badge(bolt_icon(*stress_xy, .60, bright), *stress_xy, 75, bright)
+        + band_text("74", 408, 105, 34, pale, "stress")
+        + arc_text("label-steps", "STEPS · 8–10K", 365, 148, 212, 18, pale)
+        + ring_icon_badge(step_icon(int(steps_xy[0]), int(steps_xy[1]), .54, bright), *steps_xy, 165, bright)
+        + band_text("8,600", 408, 195, 28, pale, "ring_steps")
     )
 
     center_readout = (
@@ -210,7 +240,7 @@ def face_ember(t: dict) -> str:
         + svg_text(512, 380, "10:10:30 PM", 32, bright, live="time_seconds_12", tracking=.8)
         + svg_text(512, 425, "77°", 32, bright, live="temperature_face")
     )
-    return gauges + complications + line_markers(r1=318, r2=345) + round_numerals(288, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright)
+    return telemetry_band + gauges + complications + line_markers(r1=294, r2=320) + round_numerals(258, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright)
 
 
 def face_pulse(t: dict) -> str:

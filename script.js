@@ -1,5 +1,5 @@
 const FACES = [
-  { slug: "pixel-01-ember-atlas", name: "Reference Replica", mode: "HYBRID", description: "A CV-measured redraw of the supplied face: rounded hours, health icons, inner seconds, and coral telemetry arcs.", metrics: ["heart", "steps", "temperature"] },
+  { slug: "pixel-01-ember-atlas", name: "Reference Replica", mode: "HYBRID", description: "A CV-measured redraw with rounded hours, an open inner scale, and one glowing bright-orange telemetry band.", metrics: ["heart", "steps", "temperature", "stress"] },
   { slug: "pixel-02-pulse-orbit", name: "Pulse Orbit", mode: "CARDIO", description: "Heart rate becomes the clock: one vivid orbit, one calm central readout.", metrics: ["heart", "activity", "recovery"] },
   { slug: "pixel-03-stride-grid", name: "Stride Grid", mode: "MOVE", description: "A bold typographic step counter with pace, distance, and daily progress.", metrics: ["steps", "distance", "activity"] },
   { slug: "pixel-04-recovery-field", name: "Recovery Field", mode: "RECOVER", description: "Recovery, sleep, and resting pulse arranged as a quiet readiness dashboard.", metrics: ["recovery", "sleep", "resting"] },
@@ -14,10 +14,10 @@ const FACES = [
 const METRIC_LABELS = {
   heart: "Heart rate", steps: "Steps", calories: "Calories", activity: "Active minutes",
   recovery: "Recovery", distance: "Distance", sleep: "Sleep", resting: "Resting heart",
-  oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation"
+  oxygen: "Blood oxygen", temperature: "Temperature", elevation: "Elevation", stress: "Stress"
 };
 
-const ASSET_VERSION = "cv-replica-3";
+const ASSET_VERSION = "cv-replica-4";
 
 const faceGrid = document.querySelector("#faceGrid");
 const template = document.querySelector("#faceTemplate");
@@ -70,19 +70,17 @@ heroFace.addEventListener("load", () => {
 
 function getDemoValues(now = new Date()) {
   const elapsed = now.getTime() / 1000;
-  const heart = Math.round(76 + Math.sin(elapsed / 7) * 4 + Math.sin(elapsed / 2.7) * 2);
+  const promoBeat = Math.floor(elapsed * 2.4) % 2;
+  const heart = promoBeat ? 88 : 72;
   const steps = 8742 + Math.floor((elapsed % 3600) / 18);
   const recovery = Math.round(82 + Math.sin(elapsed / 29) * 2);
   const oxygen = Math.round(98 + Math.sin(elapsed / 17) * .55);
   const activity = 54 + Math.floor((elapsed % 300) / 60);
   const calories = 612 + Math.floor((elapsed % 600) / 75);
   const elevation = 1842 + Math.round(Math.sin(elapsed / 11) * 3);
-  const outsideTemp = 80 + Math.round(Math.sin(elapsed / 19));
-  const elevationGain = 15 + Math.round(Math.sin(elapsed / 8) * 2);
-  const stress = 74 + Math.round(Math.sin(elapsed / 13) * 4);
-  const ringSteps = 972 + Math.floor((elapsed % 900) / 3);
-  const heartLow = heart + 6;
-  const heartHigh = heart + 27;
+  const outsideTemp = promoBeat ? 83 : 75;
+  const stress = promoBeat ? 78 : 32;
+  const ringSteps = promoBeat ? 9400 : 7600;
   const date = now.toLocaleDateString(undefined, { month: "short", day: "numeric" }).toUpperCase();
   const day = now.toLocaleDateString(undefined, { weekday: "short" }).toUpperCase();
   const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
@@ -96,9 +94,7 @@ function getDemoValues(now = new Date()) {
     time_seconds: timeSeconds, time_seconds_12: timeSeconds12,
     ring_heart: String(heart),
     outside_temp: `${outsideTemp}°`, outside_temp_value: String(outsideTemp),
-    elevation_gain: `${elevationGain >= 0 ? "+" : ""}${elevationGain}`, elevation_gain_value: String(elevationGain),
     stress: String(stress), stress_value: String(stress),
-    heart_range: `${heartLow}–${heartHigh}`, heart_range_value: String(heartHigh),
     ring_steps: ringSteps.toLocaleString(), temperature_face: "77°"
   };
 }
@@ -107,8 +103,7 @@ function progressFor(metric, values) {
   const number = parseFloat(String(values[metric]).replace(/[^0-9.]/g, ""));
   const scales = {
     heart: [45, 150], steps: [0, 12000], recovery: [0, 100], oxygen: [90, 100], activity: [0, 90],
-    outside_temp_value: [40, 110], elevation_gain_value: [0, 25],
-    stress_value: [0, 100], heart_range_value: [40, 200], ring_heart: [40, 120], ring_steps: [0, 10000]
+    outside_temp_value: [40, 110], stress_value: [0, 100], ring_heart: [40, 120], ring_steps: [0, 10000]
   };
   const [min, max] = scales[metric] || [0, 100];
   return Math.max(.04, Math.min(1, (number - min) / (max - min)));
@@ -137,7 +132,7 @@ function updateSvg(documentNode, now, values) {
   documentNode.querySelectorAll("[data-gauge]").forEach(node => {
     const fill = progressFor(node.dataset.gauge, values) * 100;
     node.style.strokeDasharray = `${fill.toFixed(1)} 100`;
-    node.style.transition = "stroke-dasharray 900ms cubic-bezier(.2,.8,.2,1)";
+    node.style.transition = "stroke-dasharray 300ms cubic-bezier(.2,.8,.2,1)";
   });
 }
 
@@ -152,7 +147,7 @@ function updateLiveDemo() {
 }
 
 updateLiveDemo();
-setInterval(updateLiveDemo, 1000);
+setInterval(updateLiveDemo, 420);
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {

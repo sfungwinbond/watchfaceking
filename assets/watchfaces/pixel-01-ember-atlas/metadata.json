@@ -2,13 +2,14 @@
   "slug": "pixel-01-ember-atlas",
   "name": "Reference Replica",
   "mode": "HYBRID",
-  "accent": "#dd715d",
+  "accent": "#ff7358",
   "bg": "#050505",
-  "description": "A CV-measured redraw of the supplied face: rounded hours, health icons, inner seconds, and coral telemetry arcs.",
+  "description": "A CV-measured redraw with rounded hours, an open inner scale, and one glowing bright-orange telemetry band.",
   "metrics": [
     "heart",
     "steps",
-    "temperature"
+    "temperature",
+    "stress"
   ],
   "canvas": [
     1024,
