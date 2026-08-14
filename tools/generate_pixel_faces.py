@@ -162,8 +162,8 @@ def ring_icon_badge(markup: str, x: float, y: float, deg: float, color: str) -> 
     delay = -((deg % 360) / 360) * .84
     return (
         f'<g data-ring-icon="true" filter="url(#icon-glow)" style="animation-delay:{delay:.2f}s">'
-        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="34" fill="#070606" stroke="#241b18" stroke-width="6"/>'
-        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="29" fill="#070606" stroke="{color}" stroke-width="4" opacity=".98"/>'
+        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="27" fill="#070606" stroke="#241b18" stroke-width="5"/>'
+        f'<circle cx="{x:.1f}" cy="{y:.1f}" r="23" fill="#070606" stroke="{color}" stroke-width="3" opacity=".98"/>'
         f'<g transform="rotate({rotation:.1f} {x:.1f} {y:.1f})">{markup}</g>'
         '</g>'
     )
@@ -187,15 +187,15 @@ def face_ember(t: dict) -> str:
         '@keyframes icon-flash{0%,38%,100%{opacity:.58;transform:scale(.96)}50%,62%{opacity:1;transform:scale(1.12)}}'
         '@keyframes meter-flash{0%,100%{stroke-opacity:.72}50%{stroke-opacity:1}}'
         '</style>'
-        '<circle cx="512" cy="512" r="382" fill="none" stroke="#120f0e" stroke-width="120"/>'
-        '<circle cx="512" cy="512" r="321" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
-        '<circle cx="512" cy="512" r="443" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
+        '<circle cx="512" cy="512" r="383" fill="none" stroke="#120f0e" stroke-width="68"/>'
+        '<circle cx="512" cy="512" r="348" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
+        '<circle cx="512" cy="512" r="418" fill="none" stroke="#332722" stroke-width="3" opacity=".9"/>'
     )
     gauges = "".join([
-        status_gauge(230, 310, "outside_temp_value", 57, bright, width=112, radius=382),
-        status_gauge(320, 400, "ring_heart", 48, accent, width=112, radius=382),
-        status_gauge(50, 130, "stress_value", 74, rust, width=112, radius=382),
-        status_gauge(140, 220, "ring_steps", 86, bright, width=112, radius=382),
+        status_gauge(234, 306, "outside_temp_value", 57, bright, width=60, radius=383),
+        status_gauge(324, 396, "ring_heart", 48, accent, width=60, radius=383),
+        status_gauge(54, 126, "stress_value", 74, rust, width=60, radius=383),
+        status_gauge(144, 216, "ring_steps", 86, bright, width=60, radius=383),
     ])
 
     inner_ticks_parts = []
@@ -216,23 +216,23 @@ def face_ember(t: dict) -> str:
         for deg, value in [(90, "20"), (135, "25"), (180, "30"), (225, "35"), (270, "40")]
     )
 
-    temp_icon_xy = polar(406, 255)
-    heart_xy = polar(406, 345)
-    stress_xy = polar(406, 75)
-    steps_xy = polar(406, 165)
+    temp_icon_xy = polar(384, 255)
+    heart_xy = polar(384, 345)
+    stress_xy = polar(384, 75)
+    steps_xy = polar(384, 165)
     complications = (
-        arc_text("label-temp", "TEMP · 60–85°F", 365, 238, 302, 18, pale)
-        + ring_icon_badge(thermometer_icon(*temp_icon_xy, .62, bright), *temp_icon_xy, 255, bright)
-        + band_text("80°", 408, 285, 34, pale, "outside_temp")
-        + arc_text("label-heart", "HEART · 60–100", 365, 328, 392, 18, pale)
-        + ring_icon_badge(heart_icon(int(heart_xy[0]), int(heart_xy[1] - 10), .52, accent), *heart_xy, 345, accent)
-        + band_text("78", 408, 15, 34, pale, "heart")
-        + arc_text("label-stress", "STRESS · 0–40", 365, 58, 122, 18, pale)
-        + ring_icon_badge(bolt_icon(*stress_xy, .60, bright), *stress_xy, 75, bright)
-        + band_text("74", 408, 105, 34, pale, "stress")
-        + arc_text("label-steps", "STEPS · 8–10K", 365, 148, 212, 18, pale)
-        + ring_icon_badge(step_icon(int(steps_xy[0]), int(steps_xy[1]), .54, bright), *steps_xy, 165, bright)
-        + band_text("8,600", 408, 195, 28, pale, "ring_steps")
+        arc_text("label-temp", "TEMP · 60–85°F", 359, 238, 302, 16, pale)
+        + ring_icon_badge(thermometer_icon(*temp_icon_xy, .52, bright), *temp_icon_xy, 255, bright)
+        + band_text("80°", 394, 285, 29, pale, "outside_temp")
+        + arc_text("label-heart", "HEART · 60–100", 359, 328, 392, 16, pale)
+        + ring_icon_badge(heart_icon(int(heart_xy[0]), int(heart_xy[1] - 9), .45, accent), *heart_xy, 345, accent)
+        + band_text("78", 394, 15, 29, pale, "heart")
+        + arc_text("label-stress", "STRESS · 0–40", 359, 58, 122, 16, pale)
+        + ring_icon_badge(bolt_icon(*stress_xy, .50, bright), *stress_xy, 75, bright)
+        + band_text("74", 394, 105, 29, pale, "stress")
+        + arc_text("label-steps", "STEPS · 8–10K", 359, 148, 212, 16, pale)
+        + ring_icon_badge(step_icon(int(steps_xy[0]), int(steps_xy[1]), .46, bright), *steps_xy, 165, bright)
+        + band_text("8,600", 394, 195, 24, pale, "ring_steps")
     )
 
     center_readout = (
@@ -240,7 +240,7 @@ def face_ember(t: dict) -> str:
         + svg_text(512, 380, "10:10:30 PM", 32, bright, live="time_seconds_12", tracking=.8)
         + svg_text(512, 425, "77°", 32, bright, live="temperature_face")
     )
-    return telemetry_band + gauges + complications + line_markers(r1=294, r2=320) + round_numerals(258, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright)
+    return telemetry_band + gauges + complications + line_markers(r1=323, r2=347) + round_numerals(286, pale, 28) + inner_ticks + inner_values + center_readout + analog_hands(bright)
 
 
 def face_pulse(t: dict) -> str:
