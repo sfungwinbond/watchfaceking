@@ -12,6 +12,11 @@ The site is plain HTML, CSS, and JavaScript. It has no dependencies and no build
 step. The live SVG masters are under `assets/watchfaces/pixel-*` and can be
 regenerated with `python3 tools/generate_pixel_faces.py`.
 
+Face 01 is measured from the supplied angled TIFF. Run
+`python tools/analyze_pixel5_face.py ../pixel5.tiff` in an OpenCV-enabled
+environment to reproduce the ellipse fit, perspective correction, palette, and
+telemetry-mark report used by the redraw.
+
 ## Run locally
 
 Browsers restrict scripting inside SVG files opened directly from `file://`, so

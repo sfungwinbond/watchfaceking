@@ -1,5 +1,5 @@
 const FACES = [
-  { slug: "pixel-01-ember-atlas", name: "Ember Atlas", mode: "HYBRID", description: "A field-watch dial wrapped in live activity, heart, and energy arcs.", metrics: ["heart", "steps", "calories"] },
+  { slug: "pixel-01-ember-atlas", name: "Reference Replica", mode: "HYBRID", description: "A CV-measured redraw of the supplied face: rounded hours, health icons, inner seconds, and coral telemetry arcs.", metrics: ["heart", "steps", "temperature"] },
   { slug: "pixel-02-pulse-orbit", name: "Pulse Orbit", mode: "CARDIO", description: "Heart rate becomes the clock: one vivid orbit, one calm central readout.", metrics: ["heart", "activity", "recovery"] },
   { slug: "pixel-03-stride-grid", name: "Stride Grid", mode: "MOVE", description: "A bold typographic step counter with pace, distance, and daily progress.", metrics: ["steps", "distance", "activity"] },
   { slug: "pixel-04-recovery-field", name: "Recovery Field", mode: "RECOVER", description: "Recovery, sleep, and resting pulse arranged as a quiet readiness dashboard.", metrics: ["recovery", "sleep", "resting"] },
@@ -69,12 +69,13 @@ function getDemoValues(now = new Date()) {
   const day = now.toLocaleDateString(undefined, { weekday: "short" }).toUpperCase();
   const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
   const timeSeconds = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+  const timeSeconds12 = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", second: "2-digit", hour12: true }).toUpperCase();
 
   return {
     heart: String(heart), steps: steps.toLocaleString(), recovery: String(recovery), oxygen: `${oxygen}%`,
     activity: `${activity} MIN`, calories: String(calories), distance: "6.4 KM", sleep: "7H 42M",
     resting: "54 BPM", temperature: "+0.2°", elevation: elevation.toLocaleString(), date, day, time,
-    time_seconds: timeSeconds
+    time_seconds: timeSeconds, time_seconds_12: timeSeconds12, heart_percent: `${Math.max(70, Math.min(99, heart - 1))}%`, temperature_face: "77°"
   };
 }
 

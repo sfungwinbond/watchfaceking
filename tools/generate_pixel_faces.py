@@ -20,7 +20,7 @@ C = 512
 STATUS = "#ff684f"
 
 FACES = [
-    dict(slug="pixel-01-ember-atlas", name="Ember Atlas", mode="HYBRID", accent="#ff684f", bg="#050505", description="A field-watch dial wrapped in live activity, heart, and energy arcs.", metrics=["heart", "steps", "calories"]),
+    dict(slug="pixel-01-ember-atlas", name="Reference Replica", mode="HYBRID", accent="#dd715d", bg="#050505", description="A CV-measured redraw of the supplied face: rounded hours, health icons, inner seconds, and coral telemetry arcs.", metrics=["heart", "steps", "temperature"]),
     dict(slug="pixel-02-pulse-orbit", name="Pulse Orbit", mode="CARDIO", accent="#ff4f6d", bg="#070507", description="Heart rate becomes the clock: one vivid orbit, one calm central readout.", metrics=["heart", "activity", "recovery"]),
     dict(slug="pixel-03-stride-grid", name="Stride Grid", mode="MOVE", accent="#ffb23f", bg="#080706", description="A bold typographic step counter with pace, distance, and daily progress.", metrics=["steps", "distance", "activity"]),
     dict(slug="pixel-04-recovery-field", name="Recovery Field", mode="RECOVER", accent="#b6f06b", bg="#060806", description="Recovery, sleep, and resting pulse arranged as a quiet readiness dashboard.", metrics=["recovery", "sleep", "resting"]),
@@ -87,10 +87,66 @@ def analog_hands(accent: str) -> str:
     </g>'''
 
 
+def status_arc(start: float, end: float, color: str, width: int = 22, radius: int = 399) -> str:
+    x1, y1 = polar(radius, start)
+    x2, y2 = polar(radius, end)
+    large = 1 if (end - start) % 360 > 180 else 0
+    return f'<path d="M{x1:.1f} {y1:.1f} A{radius} {radius} 0 {large} 1 {x2:.1f} {y2:.1f}" fill="none" stroke="{color}" stroke-width="{width}" stroke-linecap="round"/>'
+
+
+def heart_icon(x: int, y: int, scale: float = 1, color: str = STATUS) -> str:
+    return f'<path d="M0 8 C-15-6-31 8-24 24 C-18 36 0 46 0 46 C0 46 18 36 24 24 C31 8 15-6 0 8Z" fill="{color}" transform="translate({x} {y}) scale({scale})"/>'
+
+
+def bell_icon(x: int, y: int, scale: float = 1, color: str = STATUS) -> str:
+    return f'<g transform="translate({x} {y}) scale({scale})" fill="{color}"><path d="M-18 20 H18 L12 10 V-3 C12-14 6-22 0-22 C-6-22-12-14-12-3 V10Z"/><circle cy="25" r="5"/></g>'
+
+
+def step_icon(x: int, y: int, scale: float = 1, color: str = STATUS) -> str:
+    return f'<g transform="translate({x} {y}) rotate(-32) scale({scale})" fill="{color}"><ellipse cx="-7" cy="-7" rx="9" ry="18"/><ellipse cx="9" cy="10" rx="8" ry="16"/></g>'
+
+
 def face_ember(t: dict) -> str:
     accent = t["accent"]
-    arcs = "".join(f'<path d="M {polar(405, d)[0]:.1f} {polar(405, d)[1]:.1f} A405 405 0 0 1 {polar(405, d+28)[0]:.1f} {polar(405, d+28)[1]:.1f}" fill="none" stroke="{c}" stroke-width="22" stroke-linecap="round" opacity=".9"/>' for d, c in [(292, accent), (330, "#d8916e"), (8, "#f5e9df"), (46, accent), (84, "#8a3b24")])
-    return arcs + line_markers(r1=370, r2=392) + round_numerals(337) + analog_hands(accent) + svg_text(512, 363, "AUG 20", 30, STATUS, live="date", tracking=2) + svg_text(512, 405, "10:09:36", 34, STATUS, live="time_seconds") + pill(190, 716, 218, "HEART", "78", "heart", accent) + pill(616, 716, 218, "STEPS", "8,742", "steps", accent)
+    pale, rust, bright = "#f4e8df", "#8f3d24", "#ff6b57"
+    arcs = "".join([
+        status_arc(278, 294, bright), status_arc(298, 312, rust),
+        status_arc(318, 326, rust), status_arc(345, 359, bright),
+        status_arc(3, 9, pale), status_arc(11, 27, rust),
+        status_arc(104, 117, bright), status_arc(123, 141, rust),
+        status_arc(198, 216, bright), status_arc(220, 231, rust),
+    ])
+
+    minute_ring = "".join(
+        f'<circle cx="{polar(187, d)[0]:.1f}" cy="{polar(187, d)[1]:.1f}" r="{5 if d % 30 == 0 else 3}" fill="#797671"/>'
+        for d in range(0, 360, 10)
+    )
+    inner_values = "".join(
+        svg_text(*polar(150, deg), value, 22, "#d8d4cd", weight=700)
+        for deg, value in [(45, "15"), (90, "20"), (135, "25"), (180, "30"), (225, "35"), (270, "40"), (315, "45")]
+    )
+
+    complications = (
+        svg_text(335, 171, "80°", 28, pale, weight=800)
+        + heart_icon(459, 141, .42, accent)
+        + svg_text(536, 171, "75%", 28, pale, weight=800, live="heart_percent")
+        + f'<text x="824" y="350" fill="{pale}" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="27" font-weight="800" transform="rotate(67 824 350)">+15</text>'
+        + heart_icon(835, 476, .48, bright)
+        + f'<text x="846" y="568" fill="{pale}" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="27" font-weight="800" transform="rotate(90 846 568)">74</text>'
+        + svg_text(648, 856, "84–105", 26, pale, weight=800)
+        + step_icon(464, 852, .48, bright)
+        + svg_text(390, 856, "972", 26, pale, weight=800)
+        + f'<text x="155" y="651" fill="{pale}" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="25" font-weight="800" transform="rotate(-77 155 651)">10k</text>'
+        + bell_icon(165, 488, .45, bright)
+        + f'<text x="164" y="395" fill="{pale}" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="24" font-weight="800" transform="rotate(-65 164 395)">77%</text>'
+    )
+
+    center_readout = (
+        svg_text(512, 331, "AUG 20", 34, bright, live="date", tracking=2)
+        + svg_text(512, 380, "10:10:30 PM", 32, bright, live="time_seconds_12", tracking=.8)
+        + svg_text(512, 425, "77°", 32, bright, live="temperature_face")
+    )
+    return arcs + line_markers(r1=356, r2=382) + round_numerals(322, pale, 28) + minute_ring + inner_values + complications + center_readout + analog_hands(bright)
 
 
 def face_pulse(t: dict) -> str:
@@ -186,7 +242,12 @@ def main() -> None:
         folder.mkdir(parents=True, exist_ok=True)
         face = document(t, drawer(t))
         (folder / "face.svg").write_text(face, encoding="utf-8")
-        metadata = {**t, "canvas": [S, S], "liveDemo": True, "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."}
+        originality = (
+            "Faithful unbranded redraw of the user-supplied reference face, measured after CV ellipse rectification."
+            if t["slug"] == "pixel-01-ember-atlas"
+            else "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+        )
+        metadata = {**t, "canvas": [S, S], "liveDemo": True, "originality": originality}
         (folder / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
         catalog.append(metadata)
     (ROOT / "pixel-catalog.json").write_text(json.dumps(catalog, indent=2) + "\n", encoding="utf-8")

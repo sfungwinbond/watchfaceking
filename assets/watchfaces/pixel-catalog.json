@@ -1,22 +1,22 @@
 [
   {
     "slug": "pixel-01-ember-atlas",
-    "name": "Ember Atlas",
+    "name": "Reference Replica",
     "mode": "HYBRID",
-    "accent": "#ff684f",
+    "accent": "#dd715d",
     "bg": "#050505",
-    "description": "A field-watch dial wrapped in live activity, heart, and energy arcs.",
+    "description": "A CV-measured redraw of the supplied face: rounded hours, health icons, inner seconds, and coral telemetry arcs.",
     "metrics": [
       "heart",
       "steps",
-      "calories"
+      "temperature"
     ],
     "canvas": [
       1024,
       1024
     ],
     "liveDemo": true,
-    "originality": "Original unbranded artwork informed by the supplied round-watch reference; no logos or exact UI replicas."
+    "originality": "Faithful unbranded redraw of the user-supplied reference face, measured after CV ellipse rectification."
   },
   {
     "slug": "pixel-02-pulse-orbit",
